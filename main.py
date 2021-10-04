@@ -3,70 +3,71 @@ from datetime import datetime
 
 
 @dataclass
-class Delivery:
-    delivery_location_number: str = None
-    delivery_date: datetime = None
-    despatch_number: str = None
-
-
-@dataclass
 class Order:
-    buyer_order_number: str = None
-    supplier_order_number: str = None
-    buyer_order_date: datetime = None
+    buyer_order_number: str = None              # Numer zamówienia
+    supplier_order_number: str = None           # Numer zamówienia według sprzedawcy
+    buyer_order_date: datetime = None           # Data zamówienia
 
 
 @dataclass
 class Reference:
-    invoice_reference_number: str = None
-    invoice_reference_date: datetime = None
+    invoice_reference_number: str = None        # Numer faktury korygowanej
+    invoice_reference_date: datetime = None     # Data faktury korygowanej
 
 
 @dataclass
 class DeliveryTerms:
+    # Kod warunków dostawy lub transportu (INCOTERMS):
+    # „04E” – płatne przy odbiorze
+    # „EXW” – ex works
+    # „FOR” – przekazane przewoźnikowi w określonym miejscu
+    # „CPT” – opłacone do miejsca dostawy
     delivery_terms_code: str = None
+    # Sposób płatności kosztów transportu:
+    # „DF” – określony przez kupującego i dostawcę
+    # „PC” – opłacony z góry, obciążający klienta
     payment_method: str = None
 
 
 @dataclass
 class Delivery:
-    delivery_location_number: int = 0
-    tax_id: str = None
-    delivery_date: datetime = None
-    despatch_number: str = None
-    despatch_date: datetime = None
-    despatch_advice_number: str = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
+    delivery_location_number: int = None        # ILN lokalizacji dostawy (sklepu)
+    tax_id: str = None                          # NIP lokalizacji dostawy (sklepu)
+    delivery_date: datetime = None              # Data dostawy
+    despatch_number: str = None                 # Numer dostawy
+    despatch_date: datetime = None              # Data dokumentu dostawy
+    despatch_advice_number: str = None          # Numer awiza wysyłki
+    name: str = None                            # Nazwa Punktu Dostawy
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
     delivery_terms: DeliveryTerms = DeliveryTerms()
 
 
 @dataclass
 class Returns:
-    returns_notice_number: str = None
-    returns_notice_date: str = None
+    returns_notice_number: str = None           # Numer zawiadomienia o zwrotach
+    returns_notice_date: str = None             # Data zawiadomienia o zwrotach
 
 
 @dataclass
 class InvoiceHeader:
-    invoice_number: str = None
-    invoice_date: datetime = None
-    sales_date: datetime = None
-    invoice_duplicate_date: datetime = None
-    invoice_currency: str = None
-    invoice_payment_due_date: datetime = None
-    invoice_payment_terms: int = 0
-    invoice_payment_means: str = None
-    payment_information: str = None
-    deferred_payment: str = None
-    invoice_post_date: datetime = None
-    document_function_code: str = None
-    message_type: str = None
-    correction_reason: str = None
-    remakes: str = None
+    invoice_number: str = None                  # Numer faktury
+    invoice_date: datetime = None               # Data faktury
+    sales_date: datetime = None                 # Data dostawy towarów lub wykonania usługi
+    invoice_duplicate_date: datetime = None     # Data duplikatu faktury
+    invoice_currency: str = None                # Waluta faktury
+    invoice_payment_due_date: datetime = None   # Data płatności
+    invoice_payment_terms: int = None           # Termin płatności (w dniach)
+    invoice_payment_means: str = None           # Sposób płatności: 10–gotówka 20–czek 42–przelew 97–kompensata
+    payment_information: str = None             # Adnotacja o podzielonej płatności
+    deferred_payment: str = None                # Tekstowy opis odroczonej płatności
+    invoice_post_date: datetime = None          # Data wpłynięcia do systemu
+    document_function_code: str = None          # Typ dokumentu: O–oryginał D–duplikat C–korekta R–duplikat korekty
+    message_type: str = None                    # Typ dokumentu: INV–faktura SB–rachunek własny
+    correction_reason: str = None               # Powód korekty
+    remakes: str = None                         # Uwagi
     order: Order = Order()
     reference: Reference = Reference()
     delivery: Delivery = Delivery()
@@ -75,95 +76,95 @@ class InvoiceHeader:
 
 @dataclass
 class Buyer:
-    iln: int = None
-    tax_id: str = None
-    account_number: str = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
+    iln: int = None                             # ILN Kupującego
+    tax_id: str = None                          # NIP Kupującego
+    account_number: str = None                  # Konto bankowe Kupującego
+    name: str = None                            # Nazwa Kupującego
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
 
 
 @dataclass
 class Payer:
-    iln: int = None
-    tax_id: str = None
-    account_number: str = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
+    iln: int = None                             # ILN Płatnika
+    tax_id: str = None                          # NIP Płatnika
+    account_number: str = None                  # Konto bankowe Płatnika.
+    name: str = None                            # Nazwa Płatnika
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
 
 
 @dataclass
 class Invoicee:
-    iln: int = None
-    tax_id: str = None
-    account_number: str = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
+    iln: int = None                             # ILN Odbiorcy Faktury
+    tax_id: str = None                          # NIP Odbiorcy Faktury
+    account_number: str = None                  # Konto bankowe Odbiorcy Faktury.
+    name: str = None                            # Nazwa Odbiorcy Faktury
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
 
 
 @dataclass
 class ContactInformation:
-    contact_id: str = None
-    contact_name: str = None
-    phone_number: str = None
-    fax: str = None
-    electronic_mail: str = None
-    x400: str = None
+    contact_id: str = None                      # Id kontaktu
+    contact_name: str = None                    # Nazwa kontaktu
+    phone_number: str = None                    # Numer kontaktowy
+    fax: str = None                             # Fax
+    electronic_mail: str = None                 # Adres e-mail
+    x400: str = None                            # X400
 
 
 @dataclass
 class AccountingContactInformation:
-    contact_id: str = None
-    contact_name: str = None
-    phone_number: str = None
-    fax: str = None
-    electronic_mail: str = None
-    x400: str = None
+    contact_id: str = None                      # Id kontaktu
+    contact_name: str = None                    # Nazwa kontaktu
+    phone_number: str = None                    # Numer kontaktowy
+    fax: str = None                             # Fax
+    electronic_mail: str = None                 # Adres e-mail
+    x400: str = None                            # X400
 
 
 @dataclass
 class SalesAdministration:
-    contact_id: str = None
-    contact_name: str = None
-    phone_number: str = None
-    fax: str = None
-    electronic_mail: str = None
-    x400: str = None
+    contact_id: str = None                      # Id kontaktu
+    contact_name: str = None                    # Nazwa kontaktu
+    phone_number: str = None                    # Numer kontaktowy
+    fax: str = None                             # Fax
+    electronic_mail: str = None                 # Adres e-mail
+    x400: str = None                            # X400
 
 
 @dataclass
 class SalesRepresentative:
-    contact_id: str = None
-    contact_name: str = None
-    phone_number: str = None
-    fax: str = None
-    electronic_mail: str = None
-    x400: str = None
+    contact_id: str = None                      # Id kontaktu
+    contact_name: str = None                    # Nazwa kontaktu
+    phone_number: str = None                    # Numer kontaktowy
+    fax: str = None                             # Fax
+    electronic_mail: str = None                 # Adres e-mail
+    x400: str = None                            # X400
 
 
 @dataclass
 class Seller:
-    iln: int = None
-    tax_id: str = None
-    account_number: str = None
-    financial_institution_name: str = None
-    code_by_buyer: str = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
-    utilization_register_number: str = None
-    court_and_capital_information: str = None
-    certificate_number: str = None
+    iln: int = None                             # ILN Sprzedawcy
+    tax_id: str = None                          # NIP Sprzedawcy
+    account_number: str = None                  # Konto bankowe Sprzedawcy
+    financial_institution_name: str = None      # Nazwa instytucji finansowej
+    code_by_buyer: str = None                   # Kod dostawcy wg Kupującego
+    name: str = None                            # Nazwa Sprzedawcy
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
+    utilization_register_number: str = None     # Numer rejestrowy (utylizacyjny)
+    court_and_capital_information: str = None   # Oznaczenie sądu rejestrowego i numeru rejestru
+    certificate_number: str = None              # Numer certyfikatu
     contact_information: ContactInformation = ContactInformation()
     accounting_contact_information: AccountingContactInformation = AccountingContactInformation()
     sales_administration: SalesAdministration = SalesAdministration()
@@ -172,58 +173,58 @@ class Seller:
 
 @dataclass
 class Payee:
-    iln: int = None
-    tax_id: str = None
-    account_number: str = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
+    iln: int = None                             # ILN Odbiorcy Płatności
+    tax_id: str = None                          # NIP Odbiorcy Płatności
+    account_number: str = None                  # Konto Odbiorcy Płatności
+    name: str = None                            # Nazwa Odbiorcy Płatności
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
 
 
 @dataclass
 class SellerHeadquarters:
-    iln: int = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
+    iln: int = None                             # ILN Siedziby Sprzedawcy
+    name: str = None                            # Nazwa Siedziby Sprzedawcy
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
 
 
 @dataclass
 class OrderedBy:
-    iln: int = None
-    tax_id: str = None
-    account_number: str = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
+    iln: int = None                             # ILN Zamawiającego
+    tax_id: str = None                          # NIP Zamawiającego
+    account_number: str = None                  # Konto bankowe Zamawiającego
+    name: str = None                            # Nazwa Zamawiającego
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
 
 
 @dataclass
 class Sender:
-    iln: int = None
-    tax_id: str = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
+    iln: int = None                             # GLN Wysyłającego
+    tax_id: str = None                          # NIP Wysyłającego
+    name: str = None                            # Nazwa Wysyłającego
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
 
 
 @dataclass
 class Receiver:
-    iln: int = None
-    tax_id: str = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
+    iln: int = None                             # GLN Odbierającego
+    tax_id: str = None                          # NIP Odbierającego
+    name: str = None                            # Nazwa Odbierającego
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
 
 
 @dataclass
@@ -247,26 +248,32 @@ class TaxReference:
 
 @dataclass
 class LineItem:
-    line_number: int = None
-    order_line_number: int = None
-    ean: str = None
-    buyer_item_code: str = None
-    supplier_item_code: str = None
-    manufacturer_item_code: str = None
-    serial_number: str = None
-    customs_code: str = None
-    item_description: str = None
-    item_type: str = None
-    country_of_origin: str = None
-    grade: str = None
-    variety: str = None
-    payment_information: str = None
-    product_type: str = None
-    product_size: str = None
-    product_color: str = None
-    special_conditions: str = None
-    invoice_quantity: float = None
-    unit_of_measure: str = None
+    line_number: int = None                     # Numer linii
+    order_line_number: int = None               # Numer linii z zamówienia
+    ean: str = None                             # EAN produktu
+    buyer_item_code: str = None                 # Kod produktu wg nabywcy
+    supplier_item_code: str = None              # Kod produktu wg dostawcy
+    manufacturer_item_code: str = None          # Kod produktu wg producenta
+    serial_number: str = None                   # Numer serii
+    customs_code: str = None                    # Kod celny towaru
+    item_description: str = None                # Nazwa produktu
+    item_type: str = None                       # Identyfikator opakowania zwrotnego:
+    # "CU" – jednostka handlowa
+    # "RC" – opakowanie zwrotne
+    # "IN" – jednostka fakturowana
+    country_of_origin: str = None               # Kraj pochodzenia
+    grade: str = None                           # Klasa produktu
+    variety: str = None                         # Odmiana
+    payment_information: str = None             # Informacje o płatności: “Mechanizm podzielonej płatności”
+    product_type: str = None                    # Typ produktu, dodatkowe informacje dotyczące
+    # produktów z grupy warzywa i owoce. Zgodnie z rozporządzeniem Komisji EU nr 543/2011
+    # należy w niektórych przypadkach przekazywać również informacje o np. klasie, typie
+    # handlowym, odmianie itp
+    product_size: str = None                    # Rozmiar produktu
+    product_color: str = None                   # Kolor produktu
+    special_conditions: str = None              # Specjalne warunki
+    invoice_quantity: float = None              # Zafakturowana ilość
+    unit_of_measure: str = None                 # Jednostka miary
     invoice_unit_packsize: float = None
     pack_item_unit_of_measure: str = None
     free_goods_quantity: float = None
