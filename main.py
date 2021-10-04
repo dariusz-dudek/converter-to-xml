@@ -394,6 +394,51 @@ class InvoiceLines:
 
 
 @dataclass
+class TaxSummaryLine:
+    tax_rate: float = None
+    tax_category_code: str = ''
+    tax_amount: float = None
+    taxable_basis: float = None
+    taxable_amount: float = None
+    gross_amount: float = None
+    previous_tax_rate: float = None
+    previous_tax_category_code: str = ''
+    previous_tax_amount: float = None
+    previous_taxable_amount: float = None
+    correction_tax_amount: float = None
+    correction_taxable_amount: float = None
+    correction_gross_amount: float = None
+
+
+@dataclass
+class TaxSummary:
+    tax_summary_line: TaxSummaryLine = TaxSummaryLine()
+
+
+@dataclass
+class DepositSummary:
+    total_net_amount: float = None
+    total_gross_amount: float = None
+    previous_total_net_amount: float = None
+    previous_total_gross_amount: float = None
+    correction_total_net_amount: float = None
+    correction_total_gross_amount: float = None
+
+
+@dataclass
+class Charge:
+    charge_number: str = ''
+    charge_amount: float = None
+    special_service: str = ''
+    special_service_description: str = ''
+
+
+@dataclass
+class ChargeSummary:
+    charge: Charge = Charge()
+
+
+@dataclass
 class InvoiceSummary:
     total_lines: int = None
     total_net_amount: float = None
@@ -414,7 +459,9 @@ class InvoiceSummary:
     correction_total_gross_amount: float = None
     correction_total_deposit_amount: float = None
     gross_amount_in_words: str = ''
-
+    tax_summary: TaxSummary = TaxSummary()
+    deposit_summary: DepositSummary = DepositSummary()
+    charge_summary: ChargeSummary = ChargeSummary()
 
 
 @dataclass
@@ -422,5 +469,6 @@ class DocumentInvoice:
     invoice_header: InvoiceHeader = InvoiceHeader()
     invoice_parties: InvoiceParties = InvoiceParties()
     invoice_lines: InvoiceLines = InvoiceLines()
+    invoice_summary: InvoiceSummary = InvoiceSummary()
 
 
