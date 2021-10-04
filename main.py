@@ -4,68 +4,69 @@ from datetime import datetime
 
 @dataclass
 class Delivery:
-    delivery_location_number: str = ''
-    delivery_date: datetime = datetime.today()
-    despatch_number: str = ''
+    delivery_location_number: str = None
+    delivery_date: datetime = None
+    despatch_number: str = None
 
 
 @dataclass
 class Order:
-    buyer_order_number: str = ''
-    supplier_order_number: str = ''
-    buyer_order_date: datetime = datetime.today()
+    buyer_order_number: str = None
+    supplier_order_number: str = None
+    buyer_order_date: datetime = None
 
 
 @dataclass
 class Reference:
-    invoice_reference_number: str = ''
-    invoice_reference_date: datetime = datetime.today()
+    invoice_reference_number: str = None
+    invoice_reference_date: datetime = None
 
 
-@ dataclass
+@dataclass
 class DeliveryTerms:
-    delivery_terms_code: str = ''
-    payment_method: str = ''
+    delivery_terms_code: str = None
+    payment_method: str = None
 
 
 @dataclass
 class Delivery:
     delivery_location_number: int = 0
-    tax_id: str = ''
-    delivery_date: datetime = datetime.today()
-    despatch_number: str = ''
-    despatch_date: datetime = datetime.today()
-    despatch_advice_number: str = ''
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
+    tax_id: str = None
+    delivery_date: datetime = None
+    despatch_number: str = None
+    despatch_date: datetime = None
+    despatch_advice_number: str = None
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
     delivery_terms: DeliveryTerms = DeliveryTerms()
 
 
 @dataclass
 class Returns:
-    returns_notice_number: str = ''
-    returns_notice_date: str = ''
+    returns_notice_number: str = None
+    returns_notice_date: str = None
+
 
 @dataclass
 class InvoiceHeader:
-    invoice_number: str = ''
-    invoice_date: datetime = datetime.today()
-    sales_date: datetime = datetime.today()
-    invoice_duplicate_date: datetime = datetime.today()
-    invoice_currency: str = ''
-    invoice_payment_due_date: datetime = datetime.today()
+    invoice_number: str = None
+    invoice_date: datetime = None
+    sales_date: datetime = None
+    invoice_duplicate_date: datetime = None
+    invoice_currency: str = None
+    invoice_payment_due_date: datetime = None
     invoice_payment_terms: int = 0
-    invoice_payment_means: str = ''
-    payment_information: str = ''
-    deferred_payment: str = ''
-    invoice_post_date: datetime = datetime.today()
-    document_function_code: str = ''
-    message_type: str = ''
-    correction_reason: str = ''
-    remakes: str = ''
+    invoice_payment_means: str = None
+    payment_information: str = None
+    deferred_payment: str = None
+    invoice_post_date: datetime = None
+    document_function_code: str = None
+    message_type: str = None
+    correction_reason: str = None
+    remakes: str = None
     order: Order = Order()
     reference: Reference = Reference()
     delivery: Delivery = Delivery()
@@ -75,94 +76,94 @@ class InvoiceHeader:
 @dataclass
 class Buyer:
     iln: int = None
-    tax_id: str = ''
-    account_number: str = ''
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
+    tax_id: str = None
+    account_number: str = None
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
 
 
 @dataclass
 class Payer:
     iln: int = None
-    tax_id: str = ''
-    account_number: str = ''
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
+    tax_id: str = None
+    account_number: str = None
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
 
 
 @dataclass
 class Invoicee:
     iln: int = None
-    tax_id: str = ''
-    account_number: str = ''
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
+    tax_id: str = None
+    account_number: str = None
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
 
 
 @dataclass
 class ContactInformation:
-    contact_id: str = ''
-    contact_name: str = ''
-    phone_number: str = ''
-    fax: str = ''
-    electronic_mail: str = ''
-    x400: str = ''
+    contact_id: str = None
+    contact_name: str = None
+    phone_number: str = None
+    fax: str = None
+    electronic_mail: str = None
+    x400: str = None
 
 
 @dataclass
 class AccountingContactInformation:
-    contact_id: str = ''
-    contact_name: str = ''
-    phone_number: str = ''
-    fax: str = ''
-    electronic_mail: str = ''
-    x400: str = ''
+    contact_id: str = None
+    contact_name: str = None
+    phone_number: str = None
+    fax: str = None
+    electronic_mail: str = None
+    x400: str = None
 
 
 @dataclass
 class SalesAdministration:
-    contact_id: str = ''
-    contact_name: str = ''
-    phone_number: str = ''
-    fax: str = ''
-    electronic_mail: str = ''
-    x400: str = ''
+    contact_id: str = None
+    contact_name: str = None
+    phone_number: str = None
+    fax: str = None
+    electronic_mail: str = None
+    x400: str = None
 
 
 @dataclass
 class SalesRepresentative:
-    contact_id: str = ''
-    contact_name: str = ''
-    phone_number: str = ''
-    fax: str = ''
-    electronic_mail: str = ''
-    x400: str = ''
+    contact_id: str = None
+    contact_name: str = None
+    phone_number: str = None
+    fax: str = None
+    electronic_mail: str = None
+    x400: str = None
 
 
 @dataclass
 class Seller:
     iln: int = None
-    tax_id: str = ''
-    account_number: str = ''
-    financial_institution_name: str = ''
-    code_by_buyer: str = ''
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
-    utilization_register_number: str = ''
-    court_and_capital_information: str = ''
-    certificate_number: str = ''
+    tax_id: str = None
+    account_number: str = None
+    financial_institution_name: str = None
+    code_by_buyer: str = None
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
+    utilization_register_number: str = None
+    court_and_capital_information: str = None
+    certificate_number: str = None
     contact_information: ContactInformation = ContactInformation()
     accounting_contact_information: AccountingContactInformation = AccountingContactInformation()
     sales_administration: SalesAdministration = SalesAdministration()
@@ -172,57 +173,57 @@ class Seller:
 @dataclass
 class Payee:
     iln: int = None
-    tax_id: str = ''
-    account_number: str = ''
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
+    tax_id: str = None
+    account_number: str = None
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
 
 
 @dataclass
 class SellerHeadquarters:
     iln: int = None
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
 
 
 @dataclass
 class OrderedBy:
     iln: int = None
-    tax_id: str = ''
-    account_number: str = ''
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
+    tax_id: str = None
+    account_number: str = None
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
 
 
 @dataclass
 class Sender:
     iln: int = None
-    tax_id: str = ''
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
+    tax_id: str = None
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
 
 
 @dataclass
 class Receiver:
     iln: int = None
-    tax_id: str = ''
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
+    tax_id: str = None
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
 
 
 @dataclass
@@ -240,34 +241,34 @@ class InvoiceParties:
 
 @dataclass
 class TaxReference:
-    reference_type: str = ''
-    reference_number: str = ''
+    reference_type: str = None
+    reference_number: str = None
 
 
 @dataclass
 class LineItem:
     line_number: int = None
     order_line_number: int = None
-    ean: str = ''
-    buyer_item_code: str = ''
-    supplier_item_code: str = ''
-    manufacturer_item_code: str = ''
-    serial_number: str = ''
-    customs_code: str = ''
-    item_description: str = ''
-    item_type: str = ''
-    country_of_origin: str = ''
-    grade: str = ''
-    variety: str = ''
-    payment_information: str = ''
-    product_type: str = ''
-    product_size: str = ''
-    product_color: str = ''
-    special_conditions: str = ''
+    ean: str = None
+    buyer_item_code: str = None
+    supplier_item_code: str = None
+    manufacturer_item_code: str = None
+    serial_number: str = None
+    customs_code: str = None
+    item_description: str = None
+    item_type: str = None
+    country_of_origin: str = None
+    grade: str = None
+    variety: str = None
+    payment_information: str = None
+    product_type: str = None
+    product_size: str = None
+    product_color: str = None
+    special_conditions: str = None
     invoice_quantity: float = None
-    unit_of_measure: str = ''
+    unit_of_measure: str = None
     invoice_unit_packsize: float = None
-    pack_item_unit_of_measure: str = ''
+    pack_item_unit_of_measure: str = None
     free_goods_quantity: float = None
     delivered_quantity: float = None
     invoice_unit_net_price: float = None
@@ -275,7 +276,7 @@ class LineItem:
     invoice_unit_retail_price: float = None
     invoice_unit_price_without_charges: float = None
     tax_rate: float = None
-    tax_category_code: str = ''
+    tax_category_code: str = None
     tax_reference: TaxReference = TaxReference()
     tax_amount: float = None
     net_amount: float = None
@@ -284,7 +285,7 @@ class LineItem:
     previous_delivered_quantity: float = None
     previous_invoice_unit_net_price: float = None
     previous_tax_rate: float = None
-    previous_tax_category_code: str = ''
+    previous_tax_category_code: str = None
     previous_tax_amount: float = None
     previous_net_amount: float = None
     previous_deposit_amount: float = None
@@ -295,60 +296,60 @@ class LineItem:
     correction_net_amount: float = None
     correction_gross_amount: float = None
     correction_deposit_amount: float = None
-    expiration_date: datetime = datetime.today()
-    production_date: datetime = datetime.today()
-    best_before_date: datetime = datetime.today()
-    sales_date: datetime = datetime.today()
-    certificate_number: str = ''
-    correction_reason: str = ''
-    utilization_fee: str = ''
+    expiration_date: datetime = None
+    production_date: datetime = None
+    best_before_date: datetime = None
+    sales_date: datetime = None
+    certificate_number: str = None
+    correction_reason: str = None
+    utilization_fee: str = None
 
 
 @dataclass
 class LineOrder:
-    buyer_order_number: str = ''
-    supplier_order_number: str = ''
-    buyer_order_date: datetime = datetime.today()
+    buyer_order_number: str = None
+    supplier_order_number: str = None
+    buyer_order_date: datetime = None
 
 
 @dataclass
 class LineReference:
-    invoice_reference_number: str = ''
-    invoice_reference_date: datetime = datetime.today()
+    invoice_reference_number: str = None
+    invoice_reference_date: datetime = None
 
 
 @dataclass
 class DeliveryTerms:
-    delivery_terms_code: str = ''
-    payment_method: str = ''
+    delivery_terms_code: str = None
+    payment_method: str = None
 
 
 @dataclass
 class LineDelivery:
-    delivery_location_number: str = ''
-    tax_id: str = ''
-    delivery_date: datetime = datetime.today()
-    despatch_number: str = ''
-    despatch_date: datetime = datetime.today()
-    despatch_advice_number: str = ''
-    ship_from_location_number: str = ''
-    name: str = ''
-    street_and_number: str = ''
-    city_name: str = ''
-    postal_code: str = ''
-    country: str = ''
+    delivery_location_number: str = None
+    tax_id: str = None
+    delivery_date: datetime = None
+    despatch_number: str = None
+    despatch_date: datetime = None
+    despatch_advice_number: str = None
+    ship_from_location_number: str = None
+    name: str = None
+    street_and_number: str = None
+    city_name: str = None
+    postal_code: str = None
+    country: str = None
     delivery_terms: DeliveryTerms = DeliveryTerms()
 
 
 @dataclass
 class LineReturns:
-    returns_notice_number: str = ''
-    returns_notice_date: datetime = datetime.today()
+    returns_notice_number: str = None
+    returns_notice_date: datetime = None
 
 
 @dataclass
 class Allowance:
-    percentage: str = ''
+    percentage: str = None
     allowance_amount: float = None
     original_amount: float = None
 
@@ -360,11 +361,11 @@ class LineAllowances:
 
 @dataclass
 class Charge:
-    percentage: str = ''
+    percentage: str = None
     charge_amount: float = None
     original_amount: float = None
-    special_service: str = ''
-    special_service_description: str = ''
+    special_service: str = None
+    special_service_description: str = None
 
 
 @dataclass
@@ -375,6 +376,7 @@ class LineCharges:
 @dataclass
 class LineMeasurements:
     net_weight: float = None
+
 
 @dataclass
 class Line:
@@ -396,13 +398,13 @@ class InvoiceLines:
 @dataclass
 class TaxSummaryLine:
     tax_rate: float = None
-    tax_category_code: str = ''
+    tax_category_code: str = None
     tax_amount: float = None
     taxable_basis: float = None
     taxable_amount: float = None
     gross_amount: float = None
     previous_tax_rate: float = None
-    previous_tax_category_code: str = ''
+    previous_tax_category_code: str = None
     previous_tax_amount: float = None
     previous_taxable_amount: float = None
     correction_tax_amount: float = None
@@ -427,10 +429,10 @@ class DepositSummary:
 
 @dataclass
 class Charge:
-    charge_number: str = ''
+    charge_number: str = None
     charge_amount: float = None
-    special_service: str = ''
-    special_service_description: str = ''
+    special_service: str = None
+    special_service_description: str = None
 
 
 @dataclass
@@ -458,7 +460,7 @@ class InvoiceSummary:
     correction_total_tax_amount: float = None
     correction_total_gross_amount: float = None
     correction_total_deposit_amount: float = None
-    gross_amount_in_words: str = ''
+    gross_amount_in_words: str = None
     tax_summary: TaxSummary = TaxSummary()
     deposit_summary: DepositSummary = DepositSummary()
     charge_summary: ChargeSummary = ChargeSummary()
@@ -470,5 +472,3 @@ class DocumentInvoice:
     invoice_parties: InvoiceParties = InvoiceParties()
     invoice_lines: InvoiceLines = InvoiceLines()
     invoice_summary: InvoiceSummary = InvoiceSummary()
-
-
