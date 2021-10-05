@@ -242,8 +242,8 @@ class InvoiceParties:
 
 @dataclass
 class TaxReference:
-    reference_type: str = None
-    reference_number: str = None
+    reference_type: str = None                  # Kod typu referencji: „SWW” lub „PKWiU”
+    reference_number: str = None                # Kod SWW lub PKWiU
 
 
 @dataclass
@@ -257,108 +257,128 @@ class LineItem:
     serial_number: str = None                   # Numer serii
     customs_code: str = None                    # Kod celny towaru
     item_description: str = None                # Nazwa produktu
-    item_type: str = None                       # Identyfikator opakowania zwrotnego:
+    # Identyfikator opakowania zwrotnego:
     # "CU" – jednostka handlowa
     # "RC" – opakowanie zwrotne
     # "IN" – jednostka fakturowana
+    item_type: str = None
     country_of_origin: str = None               # Kraj pochodzenia
     grade: str = None                           # Klasa produktu
     variety: str = None                         # Odmiana
     payment_information: str = None             # Informacje o płatności: “Mechanizm podzielonej płatności”
-    product_type: str = None                    # Typ produktu, dodatkowe informacje dotyczące
+    # Typ produktu, dodatkowe informacje dotyczące
     # produktów z grupy warzywa i owoce. Zgodnie z rozporządzeniem Komisji EU nr 543/2011
     # należy w niektórych przypadkach przekazywać również informacje o np. klasie, typie
     # handlowym, odmianie itp
+    product_type: str = None
     product_size: str = None                    # Rozmiar produktu
     product_color: str = None                   # Kolor produktu
     special_conditions: str = None              # Specjalne warunki
     invoice_quantity: float = None              # Zafakturowana ilość
     unit_of_measure: str = None                 # Jednostka miary
-    invoice_unit_packsize: float = None
-    pack_item_unit_of_measure: str = None
-    free_goods_quantity: float = None
-    delivered_quantity: float = None
-    invoice_unit_net_price: float = None
-    invoice_unit_gross_price: float = None
-    invoice_unit_retail_price: float = None
-    invoice_unit_price_without_charges: float = None
-    tax_rate: float = None
+    invoice_unit_packsize: float = None         # Liczba sztuk detalicznych w jednostce zbiorczej
+    pack_item_unit_of_measure: str = None       # Jednostka miary sztuki detalicznej w jednostce zbiorczej
+    free_goods_quantity: float = None           # Ilość towaru darmowego
+    delivered_quantity: float = None            # Dostarczona ilość
+    invoice_unit_net_price: float = None        # Cena netto
+    invoice_unit_gross_price: float = None      # Cena brutto
+    invoice_unit_retail_price: float = None     # Cena detaliczna
+    invoice_unit_price_without_charges: float = None    # Cena informacyjna przed uwzględnieniem opłaty cukrowej
+    tax_rate: float = None                      # Stawka VAT
+    # Kod stawki:
+    # "E" (exempt) - zwolniony
+    # "S" (standard) - inna, wyrażona liczba ("standardowa")
+    # "NA" (not applicable) – nie podlega "AE" (reverse charge)- odwrotne obciążenie
     tax_category_code: str = None
     tax_reference: TaxReference = TaxReference()
-    tax_amount: float = None
-    net_amount: float = None
-    deposit_amount: float = None
-    previous_invoice_quantity: float = None
-    previous_delivered_quantity: float = None
-    previous_invoice_unit_net_price: float = None
-    previous_tax_rate: float = None
+    tax_amount: float = None                    # Wartość VAT pozycji
+    net_amount: float = None                    # Wartość netto pozycji
+    deposit_amount: float = None                # Kwota kaucji za towary kaucjonowane
+    previous_invoice_quantity: float = None     # Zafakturowana ilość przed korektą
+    previous_delivered_quantity: float = None   # Dostarczona ilość przed korektą
+    previous_invoice_unit_net_price: float = None   # Cena netto przed korektą
+    previous_tax_rate: float = None             # Stawka VAT przed korektą
+    # Kod stawki:
+    # "E" (exempt) - zwolniony
+    # "S" (standard) - inna, wyrażona liczba ("standardowa")
+    # "NA" (not applicable) – nie podlega "AE" (reverse charge)- odwrotne obciążenie
     previous_tax_category_code: str = None
-    previous_tax_amount: float = None
-    previous_net_amount: float = None
-    previous_deposit_amount: float = None
-    correction_invoice_quantity: float = None
-    correction_delivered_quantity: float = None
-    correction_invoice_unit_net_price: float = None
-    correction_tax_amount: float = None
-    correction_net_amount: float = None
-    correction_gross_amount: float = None
+    previous_tax_amount: float = None           # Wartość VAT pozycji przed korektą
+    previous_net_amount: float = None           # Wartość netto pozycji przed korektą
+    previous_deposit_amount: float = None       # Kwota kaucji za towary kaucjonowane przed korektą
+    correction_invoice_quantity: float = None   # Zafakturowana ilość.Różnica pomiędzy wartością prawidłową a korygowaną
+    correction_delivered_quantity: float = None  # Dostarczona ilość. Różnica pomiędzy wartością prawidłową a korygowaną
+    correction_invoice_unit_net_price: float = None  # Cena netto. Różnica pomiędzy wartością prawidłową, a korygowaną
+    correction_tax_amount: float = None         # Wartość VAT pozycji.Różnica pomiędzy wartością prawidłową a korygowaną
+    correction_net_amount: float = None         # Wartość netto - różnica pomiędzy wartością prawidłową, a korygowaną
+    correction_gross_amount: float = None       # Wartość brutto - różnica pomiędzy wartością prawidłową, a korygowaną
+    # Kwota kaucji za towary kaucjonowane – różnica pomiędzy wartością prawidłową, a korygowaną
     correction_deposit_amount: float = None
-    expiration_date: datetime = None
-    production_date: datetime = None
-    best_before_date: datetime = None
-    sales_date: datetime = None
-    certificate_number: str = None
-    correction_reason: str = None
-    utilization_fee: str = None
+    expiration_date: datetime = None            # Data ważności
+    production_date: datetime = None            # Data produkcji
+    best_before_date: datetime = None           # Data przydatności do spożycia
+    sales_date: datetime = None                 # Data dostawy towarów lub wykonania usługi
+    certificate_number: str = None              # Numer certyfikatu
+    correction_reason: str = None               # Powód korekty
+    utilization_fee: str = None                 # Kwota kosztu gospodarowania odpadami (opłata utylizacyjna)
 
 
 @dataclass
 class LineOrder:
-    buyer_order_number: str = None
-    supplier_order_number: str = None
-    buyer_order_date: datetime = None
+    buyer_order_number: str = None              # Numer zamówienia
+    supplier_order_number: str = None           # Numer zamówienia według sprzedawcy
+    buyer_order_date: datetime = None           # Data zamówienia
 
 
 @dataclass
 class LineReference:
-    invoice_reference_number: str = None
-    invoice_reference_date: datetime = None
+    invoice_reference_number: str = None        # Numer faktury korygowanej
+    invoice_reference_date: datetime = None     # Data faktury korygowanej
 
 
 @dataclass
 class DeliveryTerms:
+    # Kod warunków dostawy lub transportu (INCOTERMS):
+    # „04E” – płatne przy odbiorze
+    # „EXW” – ex works
+    # „FOR” – przekazane przewoźnikowi w określonym miejscu
+    # „CPT” – opłacone do miejsca dostawy
     delivery_terms_code: str = None
+    # Sposób płatności kosztów transportu:
+    # „DF” – określony przez kupującego i dostawcę
+    # „PC” – opłacony z góry, obciążający klienta
     payment_method: str = None
+
 
 
 @dataclass
 class LineDelivery:
-    delivery_location_number: str = None
-    tax_id: str = None
-    delivery_date: datetime = None
-    despatch_number: str = None
-    despatch_date: datetime = None
-    despatch_advice_number: str = None
-    ship_from_location_number: str = None
-    name: str = None
-    street_and_number: str = None
-    city_name: str = None
-    postal_code: str = None
-    country: str = None
+    delivery_location_number: str = None        # ILN lokalizacji dostawy (sklepu)
+    tax_id: str = None                          # NIP lokalizacji dostawy (sklepu)
+    delivery_date: datetime = None              # Data dostawy
+    despatch_number: str = None                 # Numer dostawy
+    despatch_date: datetime = None              # Data dokumentu dostawy
+    despatch_advice_number: str = None          # Numer awiza wysyłki
+    ship_from_location_number: str = None       # ILN Punktu wysyłki
+    name: str = None                            # Nazwa Punktu Dostawy
+    street_and_number: str = None               # Ulica i numer
+    city_name: str = None                       # Miasto
+    postal_code: str = None                     # Kod pocztowy
+    country: str = None                         # Kraj (kodowane ISO 3166)
     delivery_terms: DeliveryTerms = DeliveryTerms()
 
 
 @dataclass
 class LineReturns:
-    returns_notice_number: str = None
-    returns_notice_date: datetime = None
+    returns_notice_number: str = None           # Numer zawiadomienia o zwrotach
+    returns_notice_date: datetime = None        # Data zawiadomienia o zwrotach
 
 
 @dataclass
 class Allowance:
-    percentage: str = None
-    allowance_amount: float = None
-    original_amount: float = None
+    percentage: str = None                      # Oprocentowanie obniżki
+    allowance_amount: float = None              # Wartość obniżki
+    original_amount: float = None               # Wartość sprzed obniżki
 
 
 @dataclass
@@ -368,11 +388,11 @@ class LineAllowances:
 
 @dataclass
 class Charge:
-    percentage: str = None
-    charge_amount: float = None
-    original_amount: float = None
-    special_service: str = None
-    special_service_description: str = None
+    percentage: str = None                      # Procent obciążenia
+    charge_amount: float = None                 # Wartość obciążenia
+    original_amount: float = None               # Wartość sprzed obciążenia
+    special_service: str = None                 # Kod identyfikujący usługę specjalną, np. TX = opłata cukrowa
+    special_service_description: str = None     # Opis usługi specjalnej
 
 
 @dataclass
@@ -382,7 +402,7 @@ class LineCharges:
 
 @dataclass
 class LineMeasurements:
-    net_weight: float = None
+    net_weight: float = None                    # Waga netto
 
 
 @dataclass
@@ -404,18 +424,29 @@ class InvoiceLines:
 
 @dataclass
 class TaxSummaryLine:
-    tax_rate: float = None
+    tax_rate: float = None                      # Stawka VAT
+    # Kod stawki:
+    # "E" (exempt) - zwolniony
+    # "S" (standard) - inna, wyrażona liczba ("standardowa")
+    # "NA" (not applicable) – nie podlega "AE" (reverse charge) - odwrotne obciążenie
     tax_category_code: str = None
-    tax_amount: float = None
-    taxable_basis: float = None
-    taxable_amount: float = None
-    gross_amount: float = None
-    previous_tax_rate: float = None
+    tax_amount: float = None                    # Suma VAT dla danej stawki
+    taxable_basis: float = None                 # Kwota podlegająca opodatkowaniu objęta daną stawką
+    taxable_amount: float = None                # Kwota netto objęta daną stawką
+    gross_amount: float = None                  # Kwota brutto objęta daną stawką
+    previous_tax_rate: float = None             # Stawka VAT przed korektą
+    # Kod stawki:
+    # "E" (exempt) - zwolniony
+    # "S" (standard) - inna, wyrażona liczba ("standardowa")
+    # "NA" (not applicable) – nie podlega "AE" (reverse charge) - odwrotne obciążenie
     previous_tax_category_code: str = None
-    previous_tax_amount: float = None
-    previous_taxable_amount: float = None
+    previous_tax_amount: float = None            # Suma VAT dla danej stawki przed korektą
+    previous_taxable_amount: float = None        # Kwota netto objęta daną stawką przed korektą
+    # Suma VAT dla danej stawki – różnica pomiędzy wartością prawidłową, a korygowaną
     correction_tax_amount: float = None
+    # Kwota netto objęta daną stawką – różnica pomiędzy wartością prawidłową, a korygowaną
     correction_taxable_amount: float = None
+    # Kwota brutto objęta daną stawką – różnica pomiędzy wartością prawidłową, a korygowaną
     correction_gross_amount: float = None
 
 
@@ -426,20 +457,24 @@ class TaxSummary:
 
 @dataclass
 class DepositSummary:
-    total_net_amount: float = None
-    total_gross_amount: float = None
+    total_net_amount: float = None               # Suma netto po doliczeniu kwoty za opakowania kaucjonowane
+    total_gross_amount: float = None             # Suma brutto po doliczeniu kwoty za opakowania kaucjonowane
+    # Suma netto po doliczeniu kwoty za opakowania kaucjonowane przed korektą
     previous_total_net_amount: float = None
+    # Suma brutto po doliczeniu kwoty za opakowania kaucjonowane przed korektą
     previous_total_gross_amount: float = None
+    # Suma netto po doliczeniu kwoty za opakowania kaucjonowane – różnica pomiędzy wartością prawidłową, a korygowaną
     correction_total_net_amount: float = None
+    # Suma brutto po doliczeniu kwoty za opakowania kaucjonowane – różnica pomiędzy wartością prawidłową, a korygowaną
     correction_total_gross_amount: float = None
 
 
 @dataclass
 class Charge:
-    charge_number: str = None
-    charge_amount: float = None
-    special_service: str = None
-    special_service_description: str = None
+    charge_number: str = None                    # Numer obciążenia
+    charge_amount: float = None                  # Wartość obciążenia
+    special_service: str = None                  # Kod identyfikujący usługę specjalną, np. TX = opłata cukrowa
+    special_service_description: str = None      # Opis usługi specjalnej
 
 
 @dataclass
@@ -449,25 +484,27 @@ class ChargeSummary:
 
 @dataclass
 class InvoiceSummary:
-    total_lines: int = None
-    total_net_amount: float = None
-    total_taxable_basis: float = None
-    total_tax_amount: float = None
-    total_gross_amount: float = None
-    total_deposit_amount: float = None
-    total_discount_amount: float = None
-    total_net_amout_without_charges: float = None
-    previous_total_net_amount: float = None
-    previous_total_taxable_basis: float = None
-    previous_total_tax_amount: float = None
-    previous_total_gross_amount: float = None
-    previous_total_deposit_amount: float = None
-    correction_total_net_amount: float = None
+    total_lines: int = None                      # Ilość linii
+    total_net_amount: float = None               # Suma netto
+    total_taxable_basis: float = None            # Suma podlegająca opodatkowaniu
+    total_tax_amount: float = None               # Suma VAT
+    total_gross_amount: float = None             # Suma brutto
+    total_deposit_amount: float = None           # Suma kaucji za towary kaucjonowane
+    total_discount_amount: float = None          # Wartość kwoty należnego upustu
+    total_net_amout_without_charges: float = None       # Suma netto bez dodatkowej opłaty
+    previous_total_net_amount: float = None      # Suma netto przed korektą
+    previous_total_taxable_basis: float = None   # Suma podlegająca opodatkowaniu przed korektą
+    previous_total_tax_amount: float = None      # Suma VAT przed korektą
+    previous_total_gross_amount: float = None    # Suma brutto przed korektą
+    previous_total_deposit_amount: float = None  # Suma kaucji za towary kaucjonowane przed korektą
+    correction_total_net_amount: float = None    # Suma netto.Różnica pomiędzy wartością prawidłową, a korygowaną
+    # Suma podlegająca opodatkowaniu – różnica pomiędzy wartością prawidłową, a korygowaną
     correction_total_taxable_basis: float = None
-    correction_total_tax_amount: float = None
-    correction_total_gross_amount: float = None
+    correction_total_tax_amount: float = None    # Suma VAT – różnica pomiędzy wartością prawidłową, a korygowaną
+    correction_total_gross_amount: float = None  # Suma brutto.Różnica pomiędzy wartością prawidłową a korygowaną
+    # Suma kaucji za towary kaucjonowane – różnica pomiędzy wartością prawidłową, a korygowaną
     correction_total_deposit_amount: float = None
-    gross_amount_in_words: str = None
+    gross_amount_in_words: str = None            # Suma brutto słownie
     tax_summary: TaxSummary = TaxSummary()
     deposit_summary: DepositSummary = DepositSummary()
     charge_summary: ChargeSummary = ChargeSummary()
