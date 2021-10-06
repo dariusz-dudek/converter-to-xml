@@ -1,348 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
-   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
-         <!-- XML Schema Generated from XML Document on Wed Sep 22 2021 10:28:41 GMT+0200 (czas środkowoeuropejski letni) -->
-         <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
-         <xs:element name="Document-Invoice">
-               <xs:complexType>
-                     <xs:sequence>
-                           <xs:element name="Invoice-Header">
-                                 <xs:complexType>
-                                       <xs:sequence>
-                                             <xs:element name="InvoiceNumber" type="xs:string">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="#cdata-section"></xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                             <xs:element name="InvoiceDate" type="xs:date"></xs:element>
-                                             <xs:element name="SalesDate" type="xs:date"></xs:element>
-                                             <xs:element name="InvoiceCurrency" type="xs:string"></xs:element>
-                                             <xs:element name="InvoicePaymentDueDate" type="xs:date"></xs:element>
-                                             <xs:element name="InvoicePaymentTerms" type="xs:int"></xs:element>
-                                             <xs:element name="DocumentFunctionCode" type="xs:string"></xs:element>
-                                             <xs:element name="Order">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="BuyerOrderNumber"></xs:element>
-                                                               <xs:element name="BuyerOrderDate" type="xs:date"></xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                             <xs:element name="Delivery">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="DeliveryLocationNumber"></xs:element>
-                                                               <xs:element name="DeliveryDate"></xs:element>
-                                                               <xs:element name="DespatchNumber"></xs:element>
-                                                               <xs:element name="DespatchAdviceNumber"></xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                       </xs:sequence>
-                                 </xs:complexType>
-                           </xs:element>
-                           <xs:element name="Invoice-Parties">
-                                 <xs:complexType>
-                                       <xs:sequence>
-                                             <xs:element name="Buyer">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="ILN"></xs:element>
-                                                               <xs:element name="TaxID" type="xs:int"></xs:element>
-                                                               <xs:element name="AccountNumber" type="xs:int"></xs:element>
-                                                               <xs:element name="Name" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="StreetAndNumber" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="CityName" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="PostalCode" type="xs:string"></xs:element>
-                                                               <xs:element name="Country" type="xs:string"></xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                             <xs:element name="Payer">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="ILN"></xs:element>
-                                                               <xs:element name="TaxID" type="xs:int"></xs:element>
-                                                               <xs:element name="AccountNumber" type="xs:int"></xs:element>
-                                                               <xs:element name="Name" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="StreetAndNumber" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="CityName" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="PostalCode" type="xs:string"></xs:element>
-                                                               <xs:element name="Country" type="xs:string"></xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                             <xs:element name="Invoicee">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="ILN"></xs:element>
-                                                               <xs:element name="TaxID" type="xs:int"></xs:element>
-                                                               <xs:element name="AccountNumber" type="xs:int"></xs:element>
-                                                               <xs:element name="Name" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="StreetAndNumber" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="CityName" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="PostalCode" type="xs:string"></xs:element>
-                                                               <xs:element name="Country" type="xs:string"></xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                             <xs:element name="Seller">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="ILN" type="xs:int"></xs:element>
-                                                               <xs:element name="TaxID" type="xs:int"></xs:element>
-                                                               <xs:element name="AccountNumber" type="xs:string"></xs:element>
-                                                               <xs:element name="CodeByBuyer"></xs:element>
-                                                               <xs:element name="Name" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="StreetAndNumber" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="CityName" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="PostalCode" type="xs:string"></xs:element>
-                                                               <xs:element name="Country" type="xs:string"></xs:element>
-                                                               <xs:element name="UtilizationRegisterNumber" type="xs:int"></xs:element>
-                                                               <xs:element name="CourtAndCapitalInformation"></xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                             <xs:element name="Payee">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="ILN" type="xs:int"></xs:element>
-                                                               <xs:element name="TaxID" type="xs:int"></xs:element>
-                                                               <xs:element name="AccountNumber" type="xs:string"></xs:element>
-                                                               <xs:element name="Name" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="StreetAndNumber" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="CityName" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="PostalCode" type="xs:string"></xs:element>
-                                                               <xs:element name="Country" type="xs:string"></xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                             <xs:element name="SellerHeadquarters">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="ILN" type="xs:int"></xs:element>
-                                                               <xs:element name="Name" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="StreetAndNumber" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="CityName" type="xs:string">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="#cdata-section"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="PostalCode" type="xs:string"></xs:element>
-                                                               <xs:element name="Country" type="xs:string"></xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                       </xs:sequence>
-                                 </xs:complexType>
-                           </xs:element>
-                           <xs:element name="Invoice-Lines">
-                                 <xs:complexType>
-                                       <xs:sequence>
-                                             <xs:element name="Line" maxOccurs="unbounded">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="Line-Item">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="LineNumber" type="xs:int"></xs:element>
-                                                                                 <xs:element name="EAN" type="xs:int"></xs:element>
-                                                                                 <xs:element name="BuyerItemCode"></xs:element>
-                                                                                 <xs:element name="SupplierItemCode" type="xs:int"></xs:element>
-                                                                                 <xs:element name="ItemDescription" type="xs:string">
-                                                                                       <xs:complexType>
-                                                                                             <xs:sequence>
-                                                                                                   <xs:element name="#cdata-section"></xs:element>
-                                                                                             </xs:sequence>
-                                                                                       </xs:complexType>
-                                                                                 </xs:element>
-                                                                                 <xs:element name="ItemType" type="xs:string"></xs:element>
-                                                                                 <xs:element name="InvoiceQuantity" type="xs:int"></xs:element>
-                                                                                 <xs:element name="UnitOfMeasure" type="xs:string"></xs:element>
-                                                                                 <xs:element name="InvoiceUnitPacksize" type="xs:int"></xs:element>
-                                                                                 <xs:element name="PackItemUnitOfMeasure" type="xs:string"></xs:element>
-                                                                                 <xs:element name="InvoiceUnitNetPrice" type="xs:double"></xs:element>
-                                                                                 <xs:element name="TaxRate" type="xs:int"></xs:element>
-                                                                                 <xs:element name="TaxCategoryCode" type="xs:string"></xs:element>
-                                                                                 <xs:element name="TaxReference">
-                                                                                       <xs:complexType>
-                                                                                             <xs:sequence>
-                                                                                                   <xs:element name="ReferenceType" type="xs:string"></xs:element>
-                                                                                                   <xs:element name="ReferenceNumber" type="xs:int"></xs:element>
-                                                                                             </xs:sequence>
-                                                                                       </xs:complexType>
-                                                                                 </xs:element>
-                                                                                 <xs:element name="TaxAmount" type="xs:double"></xs:element>
-                                                                                 <xs:element name="NetAmount" type="xs:double"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="Line-Order">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="BuyerOrderNumber"></xs:element>
-                                                                                 <xs:element name="BuyerOrderDate" type="xs:date"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                               <xs:element name="Line-Delivery">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="DeliveryLocationNumber"></xs:element>
-                                                                                 <xs:element name="DeliveryDate"></xs:element>
-                                                                                 <xs:element name="DespatchNumber"></xs:element>
-                                                                                 <xs:element name="DespatchAdviceNumber"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                       </xs:sequence>
-                                 </xs:complexType>
-                           </xs:element>
-                           <xs:element name="Invoice-Summary">
-                                 <xs:complexType>
-                                       <xs:sequence>
-                                             <xs:element name="TotalLines" type="xs:int"></xs:element>
-                                             <xs:element name="TotalNetAmount" type="xs:double"></xs:element>
-                                             <xs:element name="TotalTaxableBasis" type="xs:double"></xs:element>
-                                             <xs:element name="TotalTaxAmount" type="xs:double"></xs:element>
-                                             <xs:element name="TotalGrossAmount" type="xs:double"></xs:element>
-                                             <xs:element name="GrossAmountInWords" type="xs:string">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="#cdata-section"></xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                             <xs:element name="Tax-Summary">
-                                                   <xs:complexType>
-                                                         <xs:sequence>
-                                                               <xs:element name="Tax-Summary-Line">
-                                                                     <xs:complexType>
-                                                                           <xs:sequence>
-                                                                                 <xs:element name="TaxRate" type="xs:int"></xs:element>
-                                                                                 <xs:element name="TaxCategoryCode" type="xs:string"></xs:element>
-                                                                                 <xs:element name="TaxAmount" type="xs:double"></xs:element>
-                                                                                 <xs:element name="TaxableBasis" type="xs:double"></xs:element>
-                                                                                 <xs:element name="TaxableAmount" type="xs:double"></xs:element>
-                                                                                 <xs:element name="GrossAmount" type="xs:double"></xs:element>
-                                                                           </xs:sequence>
-                                                                     </xs:complexType>
-                                                               </xs:element>
-                                                         </xs:sequence>
-                                                   </xs:complexType>
-                                             </xs:element>
-                                       </xs:sequence>
-                                 </xs:complexType>
-                           </xs:element>
-                     </xs:sequence>
-               </xs:complexType>
-         </xs:element>
-   </xs:schema>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Document-Invoice" type="Document-InvoiceType"/>
+  <xs:complexType name="OrderType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="BuyerOrderNumber"/>
+      <xs:element type="xs:string" name="BuyerOrderDate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DeliveryType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="DeliveryLocationNumber"/>
+      <xs:element type="xs:string" name="DeliveryDate"/>
+      <xs:element type="xs:string" name="DespatchNumber"/>
+      <xs:element type="xs:string" name="DespatchAdviceNumber"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Invoice-HeaderType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="InvoiceNumber"/>
+      <xs:element type="xs:string" name="InvoiceDate"/>
+      <xs:element type="xs:string" name="SalesDate"/>
+      <xs:element type="xs:string" name="InvoiceCurrency"/>
+      <xs:element type="xs:string" name="InvoicePaymentDueDate"/>
+      <xs:element type="xs:string" name="InvoicePaymentTerms"/>
+      <xs:element type="xs:string" name="DocumentFunctionCode"/>
+      <xs:element type="OrderType" name="Order"/>
+      <xs:element type="DeliveryType" name="Delivery"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BuyerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ILN"/>
+      <xs:element type="xs:string" name="TaxID"/>
+      <xs:element type="xs:string" name="AccountNumber"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="StreetAndNumber"/>
+      <xs:element type="xs:string" name="CityName"/>
+      <xs:element type="xs:string" name="PostalCode"/>
+      <xs:element type="xs:string" name="Country"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ILN"/>
+      <xs:element type="xs:string" name="TaxID"/>
+      <xs:element type="xs:string" name="AccountNumber"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="StreetAndNumber"/>
+      <xs:element type="xs:string" name="CityName"/>
+      <xs:element type="xs:string" name="PostalCode"/>
+      <xs:element type="xs:string" name="Country"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvoiceeType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ILN"/>
+      <xs:element type="xs:string" name="TaxID"/>
+      <xs:element type="xs:string" name="AccountNumber"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="StreetAndNumber"/>
+      <xs:element type="xs:string" name="CityName"/>
+      <xs:element type="xs:string" name="PostalCode"/>
+      <xs:element type="xs:string" name="Country"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SellerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ILN"/>
+      <xs:element type="xs:string" name="TaxID"/>
+      <xs:element type="xs:string" name="AccountNumber"/>
+      <xs:element type="xs:string" name="CodeByBuyer"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="StreetAndNumber"/>
+      <xs:element type="xs:string" name="CityName"/>
+      <xs:element type="xs:string" name="PostalCode"/>
+      <xs:element type="xs:string" name="Country"/>
+      <xs:element type="xs:string" name="UtilizationRegisterNumber"/>
+      <xs:element type="xs:string" name="CourtAndCapitalInformation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayeeType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ILN"/>
+      <xs:element type="xs:string" name="TaxID"/>
+      <xs:element type="xs:string" name="AccountNumber"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="StreetAndNumber"/>
+      <xs:element type="xs:string" name="CityName"/>
+      <xs:element type="xs:string" name="PostalCode"/>
+      <xs:element type="xs:string" name="Country"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SellerHeadquartersType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ILN"/>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element type="xs:string" name="StreetAndNumber"/>
+      <xs:element type="xs:string" name="CityName"/>
+      <xs:element type="xs:string" name="PostalCode"/>
+      <xs:element type="xs:string" name="Country"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Invoice-PartiesType">
+    <xs:sequence>
+      <xs:element type="BuyerType" name="Buyer"/>
+      <xs:element type="PayerType" name="Payer"/>
+      <xs:element type="InvoiceeType" name="Invoicee"/>
+      <xs:element type="SellerType" name="Seller"/>
+      <xs:element type="PayeeType" name="Payee"/>
+      <xs:element type="SellerHeadquartersType" name="SellerHeadquarters"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TaxReferenceType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ReferenceType"/>
+      <xs:element name="ReferenceNumber">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="2524285000"/>
+            <xs:enumeration value=""/>
+            <xs:enumeration value="2862307950"/>
+            <xs:enumeration value="2862307390"/>
+            <xs:enumeration value="3662135000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Line-ItemType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="LineNumber"/>
+      <xs:element type="xs:string" name="EAN"/>
+      <xs:element type="xs:string" name="BuyerItemCode"/>
+      <xs:element type="xs:string" name="SupplierItemCode"/>
+      <xs:element type="xs:string" name="ItemDescription"/>
+      <xs:element type="xs:string" name="ItemType"/>
+      <xs:element name="InvoiceQuantity">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="25.000"/>
+            <xs:enumeration value="15.000"/>
+            <xs:enumeration value="9.000"/>
+            <xs:enumeration value="1.000"/>
+            <xs:enumeration value="20.000"/>
+            <xs:enumeration value="10.000"/>
+            <xs:enumeration value="5.000"/>
+            <xs:enumeration value="2.000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="UnitOfMeasure"/>
+      <xs:element type="xs:string" name="InvoiceUnitPacksize"/>
+      <xs:element type="xs:string" name="PackItemUnitOfMeasure"/>
+      <xs:element type="xs:string" name="InvoiceUnitNetPrice"/>
+      <xs:element type="xs:string" name="TaxRate"/>
+      <xs:element type="xs:string" name="TaxCategoryCode"/>
+      <xs:element type="TaxReferenceType" name="TaxReference"/>
+      <xs:element type="xs:string" name="TaxAmount"/>
+      <xs:element type="xs:string" name="NetAmount"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Line-OrderType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="BuyerOrderNumber"/>
+      <xs:element type="xs:string" name="BuyerOrderDate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Line-DeliveryType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="DeliveryLocationNumber"/>
+      <xs:element type="xs:string" name="DeliveryDate"/>
+      <xs:element type="xs:string" name="DespatchNumber"/>
+      <xs:element type="xs:string" name="DespatchAdviceNumber"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LineType">
+    <xs:sequence>
+      <xs:element type="Line-ItemType" name="Line-Item"/>
+      <xs:element type="Line-OrderType" name="Line-Order"/>
+      <xs:element type="Line-DeliveryType" name="Line-Delivery"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Invoice-LinesType">
+    <xs:sequence>
+      <xs:element type="LineType" name="Line" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Tax-Summary-LineType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="TaxRate"/>
+      <xs:element type="xs:string" name="TaxCategoryCode"/>
+      <xs:element type="xs:string" name="TaxAmount"/>
+      <xs:element type="xs:string" name="TaxableBasis"/>
+      <xs:element type="xs:string" name="TaxableAmount"/>
+      <xs:element type="xs:string" name="GrossAmount"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Tax-SummaryType">
+    <xs:sequence>
+      <xs:element type="Tax-Summary-LineType" name="Tax-Summary-Line"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Invoice-SummaryType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="TotalLines"/>
+      <xs:element type="xs:string" name="TotalNetAmount"/>
+      <xs:element type="xs:string" name="TotalTaxableBasis"/>
+      <xs:element type="xs:string" name="TotalTaxAmount"/>
+      <xs:element type="xs:string" name="TotalGrossAmount"/>
+      <xs:element type="xs:string" name="GrossAmountInWords"/>
+      <xs:element type="Tax-SummaryType" name="Tax-Summary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Document-InvoiceType">
+    <xs:sequence>
+      <xs:element type="Invoice-HeaderType" name="Invoice-Header"/>
+      <xs:element type="Invoice-PartiesType" name="Invoice-Parties"/>
+      <xs:element type="Invoice-LinesType" name="Invoice-Lines"/>
+      <xs:element type="Invoice-SummaryType" name="Invoice-Summary"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

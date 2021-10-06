@@ -1,5 +1,6 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
+from typing import List
 
 
 @dataclass
@@ -350,7 +351,6 @@ class DeliveryTerms:
     payment_method: str = None
 
 
-
 @dataclass
 class LineDelivery:
     delivery_location_number: str = None        # ILN lokalizacji dostawy (sklepu)
@@ -514,5 +514,5 @@ class InvoiceSummary:
 class DocumentInvoice:
     invoice_header: InvoiceHeader = InvoiceHeader()
     invoice_parties: InvoiceParties = InvoiceParties()
-    invoice_lines: InvoiceLines = InvoiceLines()
+    invoice_lines: InvoiceLines() = field(default_factory=[])
     invoice_summary: InvoiceSummary = InvoiceSummary()
