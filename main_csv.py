@@ -24,7 +24,7 @@ with open('example.csv') as file:
             item_description=row[2],
             invoice_quantity=row[3],
             invoice_unit_net_price=row[4],
-            net_amount=row[5] - row[6],
+            net_amount=round(float(row[5]) - float(row[6]), 2),
             tax_amount=row[6],
             unit_of_measure=row[8],
             tax_rate=row[9],

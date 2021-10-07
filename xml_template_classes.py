@@ -1,6 +1,5 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import List
 
 
 @dataclass
@@ -450,9 +449,9 @@ class TaxSummaryLine:
     correction_gross_amount: float = None
 
 
-@dataclass
 class TaxSummary:
-    tax_summary_line: TaxSummaryLine = TaxSummaryLine()
+    def __init__(self, tax_summary_line: TaxSummaryLine = TaxSummaryLine()):
+        self.tax_summary_line = [tax_summary_line]
 
 
 @dataclass
@@ -510,9 +509,12 @@ class InvoiceSummary:
     charge_summary: ChargeSummary = ChargeSummary()
 
 
-@dataclass
 class DocumentInvoice:
-    invoice_header: InvoiceHeader = InvoiceHeader()
-    invoice_parties: InvoiceParties = InvoiceParties()
-    invoice_lines: InvoiceLines() = field(default_factory=[])
-    invoice_summary: InvoiceSummary = InvoiceSummary()
+    def __init__(self, invoice_header: InvoiceHeader = InvoiceHeader(),
+                 invoice_parties: InvoiceParties = InvoiceParties(),
+                 invoice_lines: InvoiceLines = field(default_factory=[InvoiceLines()]),
+                 invoice_summary: InvoiceSummary = InvoiceSummary()):
+        self.invoice_header = invoice_header
+        self.invoice_parties = invoice_parties
+        self.invoice_lines = [invoice_lines]
+        self.invoice_summary = invoice_summary
