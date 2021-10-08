@@ -429,10 +429,10 @@ class TaxSummaryLine:
     # "S" (standard) - inna, wyrażona liczba ("standardowa")
     # "NA" (not applicable) – nie podlega "AE" (reverse charge) - odwrotne obciążenie
     tax_category_code: str = None
-    tax_amount: float = None                    # Suma VAT dla danej stawki
-    taxable_basis: float = None                 # Kwota podlegająca opodatkowaniu objęta daną stawką
-    taxable_amount: float = None                # Kwota netto objęta daną stawką
-    gross_amount: float = None                  # Kwota brutto objęta daną stawką
+    tax_amount: float = 0                    # Suma VAT dla danej stawki
+    taxable_basis: float = 0                 # Kwota podlegająca opodatkowaniu objęta daną stawką
+    taxable_amount: float = 0                # Kwota netto objęta daną stawką
+    gross_amount: float = 0                  # Kwota brutto objęta daną stawką
     previous_tax_rate: float = None             # Stawka VAT przed korektą
     # Kod stawki:
     # "E" (exempt) - zwolniony
@@ -450,7 +450,7 @@ class TaxSummaryLine:
 
 
 class TaxSummary:
-    def __init__(self, tax_summary_line: TaxSummaryLine = TaxSummaryLine()):
+    def __init__(self, tax_summary_line: TaxSummaryLine = field(default_factory=[TaxSummaryLine()])):
         self.tax_summary_line = [tax_summary_line]
 
 
@@ -483,9 +483,9 @@ class ChargeSummary:
 
 @dataclass
 class InvoiceSummary:
-    total_lines: int = None                      # Ilość linii
-    total_net_amount: float = None               # Suma netto
-    total_taxable_basis: float = None            # Suma podlegająca opodatkowaniu
+    total_lines: int = 0                         # Ilość linii
+    total_net_amount: float = 0                  # Suma netto
+    total_taxable_basis: float = 0               # Suma podlegająca opodatkowaniu
     total_tax_amount: float = None               # Suma VAT
     total_gross_amount: float = None             # Suma brutto
     total_deposit_amount: float = None           # Suma kaucji za towary kaucjonowane
@@ -510,11 +510,19 @@ class InvoiceSummary:
 
 
 class DocumentInvoice:
-    def __init__(self, invoice_header: InvoiceHeader = InvoiceHeader(),
-                 invoice_parties: InvoiceParties = InvoiceParties(),
-                 invoice_lines: InvoiceLines = field(default_factory=[InvoiceLines()]),
-                 invoice_summary: InvoiceSummary = InvoiceSummary()):
-        self.invoice_header = invoice_header
-        self.invoice_parties = invoice_parties
-        self.invoice_lines = [invoice_lines]
-        self.invoice_summary = invoice_summary
+    invoice_header: InvoiceHeader = InvoiceHeader()
+    invoice_parties: InvoiceParties = InvoiceParties()
+    invoice_lines: list[InvoiceLines] = []
+    invoice_summary: InvoiceSummary = InvoiceSummary()
+
+    def add(self, item):
+        return self.invoice_lines.append(item)
+
+    # def __init__(self, invoice_header: InvoiceHeader = InvoiceHeader(),
+    #          invoice_parties: InvoiceParties = InvoiceParties(),
+    #          invoice_lines: InvoiceLines = field(default_factory=[InvoiceLines()]),
+    #          invoice_summary: InvoiceSummary = InvoiceSummary()):
+    # self.invoice_header = invoice_header
+    # self.invoice_parties = invoice_parties
+    # self.invoice_lines = [invoice_lines]
+    # self.invoice_summary = invoice_summary
