@@ -90,7 +90,8 @@ country_payee = ET.SubElement(payee, 'Country')
 seller_headquarters = ET.SubElement(invoice_parties, 'SellerHeadquarters')
 
 iln_seller_headquarters = ET.SubElement(seller_headquarters, 'ILN')
-tax_id_seller_headquarters = ET.SubElement(seller_headquarters, 'TaxID').text = xml_document.invoice_parties.seller.tax_id
+tax_id_seller_headquarters = ET.SubElement(seller_headquarters, 'TaxID').text = \
+    xml_document.invoice_parties.seller.tax_id
 account_number_seller_headquarters = ET.SubElement(seller_headquarters, 'AccountNumber')
 name_seller_headquarters = ET.SubElement(seller_headquarters, 'Name')
 street_and_number_seller_headquarters = ET.SubElement(seller_headquarters, 'StreetAndNumber')
@@ -101,41 +102,40 @@ country_seller_headquarters = ET.SubElement(seller_headquarters, 'Country')
 invoice_lines = ET.SubElement(document_invoice, 'Invoice-Lines')
 
 
-for number, line_of_invoice in enumerate(xml_document.invoice_lines.line):
-    if number == 0:
-        continue
+for line_of_invoice in xml_document.invoice_lines:
+
     line = ET.SubElement(invoice_lines, 'Line')
 
     line_item = ET.SubElement(line, 'Line-Item')
 
     line_number = ET.SubElement(line_item, 'LineNumber').text = \
-        str(line_of_invoice.line_item.kwargs['line_number'])
+        str(line_of_invoice.line_item.line_number)
     buyer_item_code = ET.SubElement(line_item, 'BuyerItemCode')
 
     supplier_item_code = ET.SubElement(line_item, 'SupplierItemCode').text = \
-        line_of_invoice.line_item.kwargs['supplier_item_code']
+        str(line_of_invoice.line_item.supplier_item_code)
 
     item_description = ET.SubElement(line_item, 'ItemDescription').text = \
-        line_of_invoice.line_item.kwargs['item_description']
+        str(line_of_invoice.line_item.item_description)
 
     item_type = ET.SubElement(line_item, 'ItemType').text = \
-        line_of_invoice.line_item.kwargs['item_type']
+        str(line_of_invoice.line_item.item_type)
 
     invoice_quantity = ET.SubElement(line_item, 'InvoiceQuantity').text = \
-        line_of_invoice.line_item.kwargs['invoice_quantity']
+        str(line_of_invoice.line_item.invoice_quantity)
 
     unit_of_measure = ET.SubElement(line_item, 'UnitOfMeasure').text = \
-        line_of_invoice.line_item.kwargs['unit_of_measure']
+        str(line_of_invoice.line_item.unit_of_measure)
 
     invoice_unit_packsize = ET.SubElement(line_item, 'InvoiceUnitPacksize')
 
     pack_item_unit_of_measure = ET.SubElement(line_item, 'PackItemUnitOfMeasure')
 
     invoice_unit_net_price = ET.SubElement(line_item, 'InvoiceUnitNetPrice').text = \
-        str(line_of_invoice.line_item.kwargs['invoice_unit_net_price'])
+        str(line_of_invoice.line_item.invoice_unit_net_price)
 
     tax_rate = ET.SubElement(line_item, 'TaxRate').text = \
-        str(line_of_invoice.line_item.kwargs['tax_rate'])
+        str(line_of_invoice.line_item.tax_rate)
 
     tax_category_code = ET.SubElement(line_item, 'TaxCategoryCode')
         # .text = 'S'
@@ -147,10 +147,10 @@ for number, line_of_invoice in enumerate(xml_document.invoice_lines.line):
     reference_number = ET.SubElement(tax_reference, 'ReferenceNumber')
 
     tax_amount = ET.SubElement(line_item, 'TaxAmount').text = \
-        str(line_of_invoice.line_item.kwargs['tax_amount'])
+        str(line_of_invoice.line_item.tax_amount)
 
     net_amount = ET.SubElement(line_item, 'NetAmount').text = \
-        str(line_of_invoice.line_item.kwargs['net_amount'])
+        str(line_of_invoice.line_item.net_amount)
 
     line_order = ET.SubElement(line, 'Line-Order')
 
@@ -172,16 +172,34 @@ for number, line_of_invoice in enumerate(xml_document.invoice_lines.line):
 invoice_summary = ET.SubElement(document_invoice, 'Invoice-Summary')
 
 total_lines = ET.SubElement(invoice_summary, 'TotalLines').text = \
-    str(len(xml_document.invoice_lines.line))
+    str(len(xml_document.invoice_lines))
 
-# total_net_amount = ET.SubElement(invoice_summary, 'TotalNetAmount').text = \
-#     str(xml_document.invoice_summary.kwargs['total_net_amount'])
+total_net_amount = ET.SubElement(invoice_summary, 'TotalNetAmount').text = \
+    str(xml_document.invoice_summary.total_net_amount)
 
-for number, tax in enumerate(xml_document.invoice_summary.tax_summary):
-    if number == 0:
-        continue
-    print(tax.kwargs['taxable_basis'])
+total_taxable_basis = ET.SubElement(invoice_summary, 'TotalTaxableBasis').text = \
+    str(xml_document.invoice_summary.total_taxable_basis)
 
+total_tax_amount = ET.SubElement(invoice_summary, 'TotalTaxAmount').text = \
+    str(xml_document.invoice_summary.total_tax_amount)
+
+total_gross_amount = ET.SubElement(invoice_summary, 'TotalGrossAmount').text = \
+    str(xml_document.invoice_summary.total_gross_amount)
+
+gross_amount_in_words = ET.SubElement(invoice_summary, 'GrossAmountInWords').text = \
+    str(xml_document.invoice_summary.gross_amount_in_words)
+
+tax_summary = ET.SubElement(invoice_summary, 'Tax-Summary')
+
+
+for tax_sumary_row in xml_document.invoice_summary.tax_summary.tax_summary_line:
+    tax_summary_line = ET.SubElement(tax_summary, 'Tax-Summary-Line')
+    tax_rate_s = ET.SubElement(tax_summary_line, 'TaxRate').text = str(tax_sumary_row.tax_rate)
+    tax_category_code_s = ET.SubElement(tax_summary_line, 'TaxCategoryCode').text = str(tax_sumary_row.tax_category_code)
+    tax_amount_s = ET.SubElement(tax_summary_line, 'TaxAmount').text = str(tax_sumary_row.tax_amount)
+    taxable_basis_s = ET.SubElement(tax_summary_line, 'TaxableBasis').text = str(tax_sumary_row.taxable_basis)
+    taxable_amount_s = ET.SubElement(tax_summary_line, 'TaxableAmount').text = str(tax_sumary_row.taxable_amount)
+    gross_amount_s = ET.SubElement(tax_summary_line, 'GrossAmount').text = str(tax_sumary_row.gross_amount)
 
 tree = ET.ElementTree(document_invoice)
 

@@ -1,4 +1,4 @@
-from xml_template_classes_short_wdc import DocumentInvoice, LineItem, InvoiceLines, Line, TaxSummaryLine
+from xml_template_classes_full_classes import DocumentInvoice, LineItem, InvoiceLines, Line, TaxSummaryLine
 from csv import reader
 from datetime import date
 
@@ -18,58 +18,48 @@ def read():
         xml_document.invoice_header.sales_date = date.fromisoformat(header[3])
         xml_document.invoice_header.invoice_payment_due_date = date.fromisoformat(header[4])
 
-        vat = []
-
         for number, row in enumerate(data):
-            xml_document.invoice_lines.line.append(Line(LineItem(
-                line_number=number + 1,
-                supplier_item_code=row[0],
-                manufacturer_item_code=row[1],
-                item_description=row[2],
-                item_type='CU',
-                invoice_quantity=row[3],
-                invoice_unit_net_price=row[4],
-                net_amount=round(float(row[5]) - float(row[6]), 2),
-                tax_amount=row[6],
-                unit_of_measure=row[8],
-                tax_rate=row[9],
-                ean=row[10],
-                tax_category_code='S'
+            xml_document.invoice_lines.append(Line(LineItem(
+                    line_number=number + 1,
+                    supplier_item_code=row[0],
+                    manufacturer_item_code=row[1],
+                    item_description=row[2],
+                    item_type='CU',
+                    invoice_quantity=float(row[3]),
+                    invoice_unit_net_price=float(row[4]),
+                    net_amount=round(float(row[5]) - float(row[6]), 2),
+                    tax_amount=float(row[6]),
+                    unit_of_measure=row[8],
+                    tax_rate=float(row[9]),
+                    ean=row[10],
+                    tax_category_code='S'
             )))
 
-            if f'vat{str(row[9]).split(".")[0]}' not in vat:
-                globals()[f'vat{str(row[9]).split(".")[0]}'] = TaxSummaryLine(
-                    tax_rate=row[9],
-                    tax_category_code='S',
-                    taxable_basis=0,
-                    taxable_amount=0,
-                    tax_amount=0
-                )
-                xml_document.invoice_summary.add_tax(globals()[f'vat{str(row[9]).split(".")[0]}'])
-                vat.append(f'vat{str(row[9]).split(".")[0]}')
+        for row in xml_document.invoice_lines:
+            if row.line_item.tax_rate not in \
+                    [float(vat.tax_rate) for vat in xml_document.invoice_summary.tax_summary.tax_summary_line]:
+                xml_document.invoice_summary.tax_summary.tax_summary_line.\
+                    append(TaxSummaryLine(tax_rate=float(row.line_item.tax_rate), tax_category_code='S'))
 
-            globals()[f'vat{str(row[9]).split(".")[0]}'].kwargs['taxable_basis'] += \
-                round(float(row[5]) - float(row[6]), 2)
-            globals()[f'vat{str(row[9]).split(".")[0]}'].kwargs['taxable_amount'] += \
-                round(float(row[5]) - float(row[6]), 2)
-            # globals()[f'vat{str(row[9]).split(".")[0]}'].kwargs['tax_amount'] += \
-            #     float(row[6])
-            xml_document.invoice_summary.total_net_amount += \
-                round(float(row[5]) - float(row[6]), 2)
-            xml_document.invoice_summary.total_taxable_basis += \
-                round(float(row[5]) - float(row[6]), 2)
+            for vat_summary in xml_document.invoice_summary.tax_summary.tax_summary_line:
+                if vat_summary.tax_rate == row.line_item.tax_rate:
+                    vat_summary.taxable_basis += row.line_item.net_amount
 
-            # xml_document.invoice_summary.kwargs['total_tax_amount'] += \
-            #     float(row[6])
-        # xml_document.invoice_summary.total_tax_amount = \
-        #     round(xml_document.invoice_summary.total_net_amount +
-        #           sum[tax for tax in xml_document.invoice_summary]
+        for tax_sumary_line in xml_document.invoice_summary.tax_summary.tax_summary_line:
+            tax_sumary_line.taxable_amount = tax_sumary_line.taxable_basis
+            tax_sumary_line.tax_amount = round(tax_sumary_line.taxable_basis * (tax_sumary_line.tax_rate / 100), 2)
+            tax_sumary_line.gross_amount = round(tax_sumary_line.tax_amount + tax_sumary_line.taxable_basis, 2)
+            xml_document.invoice_summary.total_taxable_basis += tax_sumary_line.taxable_basis
+            xml_document.invoice_summary.total_net_amount += tax_sumary_line.taxable_amount
+            xml_document.invoice_summary.total_tax_amount += tax_sumary_line.tax_amount
+
+        xml_document.invoice_summary.total_gross_amount = \
+            float(xml_document.invoice_summary.total_taxable_basis)\
+            + float(xml_document.invoice_summary.total_tax_amount)
+
 
 xml_document = DocumentInvoice()
-# xml_document.invoice_header.invoice_number = '1'
-# xml_document.invoice_parties.payer.tax_id = '6280012377'
-# xml_document.invoice_lines.line.append(Line(LineItem(line_number=1)))
-# xml_document.invoice_lines.line.append(Line(LineItem(line_number=2)))
 
-read()
-# print(xml_document.invoice_lines.line[1].line_item.kwargs['line_number'])
+
+# read()
+# print()
