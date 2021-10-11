@@ -41,12 +41,11 @@ class InvoiceHeader:
             reference: Reference = Reference(),
             delivery: Delivery = Delivery(),
             returns: Returns = Returns(),
-            **kwargs):
+            ):
         self.returns = returns
         self.delivery = delivery
         self.reference = reference
         self.order = order
-        self.kwargs = kwargs
 
 
 class Buyer:
@@ -178,9 +177,6 @@ class LineItem:
         self.tax_reference = tax_reference
         self.kwargs = kwargs
 
-    def __repr__(self):
-        return [item for item in self.kwargs]
-
 
 class LineOrder:
 
@@ -267,20 +263,15 @@ class Line:
         self.line_order = line_order
         self.line_item = line_item
 
-    def __repr__(self):
-        return f'{self.line_measurements}, ' \
-               f'{self.line_charges}, ' \
-               f'{self.line_allowances}, ' \
-               f'{self.line_returns}, ' \
-               f'{self.line_delivery}, ' \
-               f'{self.line_reference},' \
-               f'{self.line_order},' \
-               f'{self.line_item}'
-
 
 class InvoiceLines:
-    def __init__(self, line: Line = Line()):
+    def __init__(self, line=None):
+        if line is None:
+            line = [Line]
         self.line = line
+
+    # def add(self, item):
+    #     return self.line.append(item)
 
 
 class TaxSummaryLine:
@@ -319,8 +310,20 @@ class InvoiceSummary:
             tax_summary=None,
             deposit_summary: DepositSummary = DepositSummary(),
             charge_summary: ChargeSummary = ChargeSummary(),
+            total_lines: int = 0,
+            total_net_amount: float = 0,
+            total_taxable_basis: float = 0,
+            total_tax_amount: float = 0,
+            total_gross_amount: float = 0,
+            gross_amount_in_words: str = '',
             **kwargs
     ):
+        self.total_lines = total_lines
+        self.total_net_amount = total_net_amount
+        self.total_taxable_basis = total_taxable_basis
+        self.total_tax_amount = total_tax_amount
+        self.total_gross_amount = total_gross_amount
+        self.gross_amount_in_words = gross_amount_in_words
         if tax_summary is None:
             tax_summary = [TaxSummary]
         self.charge_summary = charge_summary
@@ -337,18 +340,12 @@ class DocumentInvoice:
             self,
             invoice_header: InvoiceHeader = InvoiceHeader(),
             invoice_parties: InvoiceParties = InvoiceParties(),
-            invoice_lines=None,
+            invoice_lines: InvoiceLines = InvoiceLines(),
             invoice_summary: InvoiceSummary = InvoiceSummary()):
-        if invoice_lines is None:
-            invoice_lines = [InvoiceLines]
         self.invoice_summary = invoice_summary
         self.invoice_lines = invoice_lines
         self.invoice_parties = invoice_parties
         self.invoice_header = invoice_header
-
-    def add(self, item):
-        return self.invoice_lines.append(item)
-
 
     # def __init__(self, invoice_header: InvoiceHeader = InvoiceHeader(),
     #          invoice_parties: InvoiceParties = InvoiceParties(),

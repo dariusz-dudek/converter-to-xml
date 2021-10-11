@@ -45,7 +45,6 @@ class Returns:
 
 @dataclass
 class InvoiceHeader:
-    kwargs: Mapping[Any, Any]
 
     def __init__(
             self,
