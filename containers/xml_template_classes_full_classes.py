@@ -1,19 +1,19 @@
 from dataclasses import dataclass, field
 import xml.etree.ElementTree as ET
-from datetime import datetime
+from datetime import date
 
 
 @dataclass
 class Order:
     buyer_order_number: str = ''              # Numer zamówienia
     supplier_order_number: str = ''           # Numer zamówienia według sprzedawcy
-    buyer_order_date: datetime = datetime.now()           # Data zamówienia
+    buyer_order_date: date = date.today()           # Data zamówienia
 
 
 @dataclass
 class Reference:
     invoice_reference_number: str = ''        # Numer faktury korygowanej
-    invoice_reference_date: datetime = datetime.now()     # Data faktury korygowanej
+    invoice_reference_date: date = date.today()     # Data faktury korygowanej
 
 
 @dataclass
@@ -34,9 +34,9 @@ class DeliveryTerms:
 class Delivery:
     delivery_location_number: int = 0        # ILN lokalizacji dostawy (sklepu)
     tax_id: str = ''                          # NIP lokalizacji dostawy (sklepu)
-    delivery_date: datetime = datetime.now()              # Data dostawy
+    delivery_date: date = date.today()              # Data dostawy
     despatch_number: str = ''                 # Numer dostawy
-    despatch_date: datetime = datetime.now()              # Data dokumentu dostawy
+    despatch_date: date = date.today()              # Data dokumentu dostawy
     despatch_advice_number: str = ''          # Numer awiza wysyłki
     name: str = ''                            # Nazwa Punktu Dostawy
     street_and_number: str = ''               # Ulica i numer
@@ -55,16 +55,16 @@ class Returns:
 @dataclass
 class InvoiceHeader:
     invoice_number: str = ''                  # Numer faktury
-    invoice_date: datetime = datetime.now()               # Data faktury
-    sales_date: datetime = datetime.now()                 # Data dostawy towarów lub wykonania usługi
-    invoice_duplicate_date: datetime = datetime.now()     # Data duplikatu faktury
+    invoice_date: date = date.today()               # Data faktury
+    sales_date: date = date.today()                 # Data dostawy towarów lub wykonania usługi
+    invoice_duplicate_date: date = date.today()     # Data duplikatu faktury
     invoice_currency: str = ''                # Waluta faktury
-    invoice_payment_due_date: datetime = datetime.now()   # Data płatności
+    invoice_payment_due_date: date = date.today()   # Data płatności
     invoice_payment_terms: int = 0           # Termin płatności (w dniach)
     invoice_payment_means: str = ''           # Sposób płatności: 10–gotówka 20–czek 42–przelew 97–kompensata
     payment_information: str = ''             # Adnotacja o podzielonej płatności
     deferred_payment: str = ''                # Tekstowy opis odroczonej płatności
-    invoice_post_date: datetime = datetime.now()          # Data wpłynięcia do systemu
+    invoice_post_date: date = date.today()          # Data wpłynięcia do systemu
     document_function_code: str = ''          # Typ dokumentu: O–oryginał D–duplikat C–korekta R–duplikat korekty
     message_type: str = ''                    # Typ dokumentu: INV–faktura SB–rachunek własny
     correction_reason: str = ''               # Powód korekty
@@ -315,10 +315,10 @@ class LineItem:
     correction_gross_amount: float = 0       # Wartość brutto - różnica pomiędzy wartością prawidłową, a korygowaną
     # Kwota kaucji za towary kaucjonowane – różnica pomiędzy wartością prawidłową, a korygowaną
     correction_deposit_amount: float = 0
-    expiration_date: datetime = datetime.now()            # Data ważności
-    production_date: datetime = datetime.now()            # Data produkcji
-    best_before_date: datetime = datetime.now()           # Data przydatności do spożycia
-    sales_date: datetime = datetime.now()                 # Data dostawy towarów lub wykonania usługi
+    expiration_date: date = date.today()            # Data ważności
+    production_date: date = date.today()            # Data produkcji
+    best_before_date: date = date.today()           # Data przydatności do spożycia
+    sales_date: date = date.today()                 # Data dostawy towarów lub wykonania usługi
     certificate_number: str = ''              # Numer certyfikatu
     correction_reason: str = ''               # Powód korekty
     utilization_fee: str = ''                 # Kwota kosztu gospodarowania odpadami (opłata utylizacyjna)
@@ -328,13 +328,13 @@ class LineItem:
 class LineOrder:
     buyer_order_number: str = ''              # Numer zamówienia
     supplier_order_number: str = ''           # Numer zamówienia według sprzedawcy
-    buyer_order_date: datetime = datetime.now()           # Data zamówienia
+    buyer_order_date: date = date.today()           # Data zamówienia
 
 
 @dataclass
 class LineReference:
     invoice_reference_number: str = ''        # Numer faktury korygowanej
-    invoice_reference_date: datetime = datetime.now()     # Data faktury korygowanej
+    invoice_reference_date: date = date.today()     # Data faktury korygowanej
 
 
 @dataclass
@@ -355,9 +355,9 @@ class DeliveryTerms:
 class LineDelivery:
     delivery_location_number: str = ''        # ILN lokalizacji dostawy (sklepu)
     tax_id: str = ''                          # NIP lokalizacji dostawy (sklepu)
-    delivery_date: datetime = datetime.now()              # Data dostawy
+    delivery_date: date = date.today()              # Data dostawy
     despatch_number: str = ''                 # Numer dostawy
-    despatch_date: datetime = datetime.now()              # Data dokumentu dostawy
+    despatch_date: date = date.today()              # Data dokumentu dostawy
     despatch_advice_number: str = ''          # Numer awiza wysyłki
     ship_from_location_number: str = ''       # ILN Punktu wysyłki
     name: str = ''                            # Nazwa Punktu Dostawy
@@ -371,7 +371,7 @@ class LineDelivery:
 @dataclass
 class LineReturns:
     returns_notice_number: str = ''           # Numer zawiadomienia o zwrotach
-    returns_notice_date: datetime = datetime.now()        # Data zawiadomienia o zwrotach
+    returns_notice_date: date = date.today()        # Data zawiadomienia o zwrotach
 
 
 @dataclass

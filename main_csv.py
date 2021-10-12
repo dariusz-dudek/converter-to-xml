@@ -1,19 +1,21 @@
-from xml_template_classes_full_classes import DocumentInvoice, LineItem, InvoiceLines, Line, TaxSummaryLine
+from containers.xml_template_classes_full_classes import DocumentInvoice, LineItem, Line, TaxSummaryLine
 from csv import reader
 from datetime import date
 
 
-def read():
-    with open('example.csv') as file:
+def read(filename, xml_document):
+    with open(filename) as file:
         data = reader(file, delimiter=';')
 
         header = next(data)
 
         xml_document.invoice_parties.seller.tax_id = header[0][-10:]
+        xml_document.invoice_parties.payee.tax_id = header[0][-10:]
+        xml_document.invoice_parties.seller_headquarters.tax_id = header[0][-10:]
         xml_document.invoice_header.invoice_number = header[1]
         xml_document.invoice_parties.buyer.tax_id = header[2]
         xml_document.invoice_parties.payer.tax_id = header[2]
-        xml_document.invoice_parties.invoicee = header[2]
+        xml_document.invoice_parties.invoicee.tax_id = header[2]
         xml_document.invoice_header.invoice_date = date.fromisoformat(header[3])
         xml_document.invoice_header.sales_date = date.fromisoformat(header[3])
         xml_document.invoice_header.invoice_payment_due_date = date.fromisoformat(header[4])
@@ -56,10 +58,3 @@ def read():
         xml_document.invoice_summary.total_gross_amount = \
             float(xml_document.invoice_summary.total_taxable_basis)\
             + float(xml_document.invoice_summary.total_tax_amount)
-
-
-xml_document = DocumentInvoice()
-
-
-# read()
-# print()

@@ -1,6 +1,6 @@
 <Document-Invoice>
     <Invoice-Header>
-        <InvoiceNumber>OM/21/10/00020393</InvoiceNumber>
+        <InvoiceNumber>OM/21/10/10020393</InvoiceNumber>
         <InvoiceDate>2021-10-05</InvoiceDate>
         <SalesDate>2021-10-05</SalesDate>
         <InvoiceCurrency>PLN</InvoiceCurrency>
@@ -9,95 +9,96 @@
         <DocumentFunctionCode>O</DocumentFunctionCode>
         <Order>
             <BuyerOrderNumber></BuyerOrderNumber>
-            <BuyerOrderDate></BuyerOrderDate>
+            <BuyerOrderDate>2021-10-12</BuyerOrderDate>
         </Order>
         <Delivery>
-            <DeliveryLocationNumber></DeliveryLocationNumber>
-            <DeliveryDate></DeliveryDate>
+            <DeliveryLocationNumber>0</DeliveryLocationNumber>
+            <DeliveryDate>2021-10-12</DeliveryDate>
             <DespatchNumber></DespatchNumber>
             <DespatchAdviceNumber></DespatchAdviceNumber>
         </Delivery>
     </Invoice-Header>
     <Invoice-Parties>
         <Buyer>
-            <ILN></ILN>
+            <ILN>0</ILN>
             <TaxID>6280012377</TaxID>
             <AccountNumber></AccountNumber>
-            <Name></Name>
-            <StreetAndNumber></StreetAndNumber>
-            <CityName></CityName>
-            <PostalCode></PostalCode>
-            <Country></Country>
+            <Name>EBUD.PL SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ SPÓŁKA KOMANDYTOWA</Name>
+            <StreetAndNumber>ul. Marszałka Piłsudskiego 150</StreetAndNumber>
+            <CityName>Trzebinia</CityName>
+            <PostalCode>32-540</PostalCode>
+            <Country>PL</Country>
         </Buyer>
         <Payer>
-            <ILN></ILN>
+            <ILN>0</ILN>
             <TaxID>6280012377</TaxID>
             <AccountNumber></AccountNumber>
-            <Name></Name>
-            <StreetAndNumber></StreetAndNumber>
-            <CityName></CityName>
-            <PostalCode></PostalCode>
-            <Country></Country>
+            <Name>EBUD.PL SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ SPÓŁKA KOMANDYTOWA</Name>
+            <StreetAndNumber>ul. Marszałka Piłsudskiego 150</StreetAndNumber>
+            <CityName>Trzebinia</CityName>
+            <PostalCode>32-540</PostalCode>
+            <Country>PL</Country>
         </Payer>
         <Invoicee>
-            <ILN></ILN>
+            <ILN>0</ILN>
             <TaxID>6280012377</TaxID>
             <AccountNumber></AccountNumber>
-            <Name></Name>
-            <StreetAndNumber></StreetAndNumber>
-            <CityName></CityName>
-            <PostalCode></PostalCode>
-            <Country></Country>
+            <Name>EBUD.PL SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ SPÓŁKA KOMANDYTOWA</Name>
+            <StreetAndNumber>ul. Marszałka Piłsudskiego 150</StreetAndNumber>
+            <CityName>Trzebinia</CityName>
+            <PostalCode>32-540</PostalCode>
+            <Country>PL</Country>
         </Invoicee>
         <Seller>
-            <ILN></ILN>
+            <ILN>5909000816008</ILN>
             <TaxID>6340065125</TaxID>
             <AccountNumber></AccountNumber>
             <CodeByBuyer></CodeByBuyer>
-            <Name></Name>
-            <StreetAndNumber></StreetAndNumber>
-            <CityName></CityName>
-            <PostalCode></PostalCode>
-            <Country></Country>
+            <Name>SEWERA POLSKA CHEMIA IRENEUSZ WOLAK</Name>
+            <StreetAndNumber>ul. Tadeusza Kościuszki 326</StreetAndNumber>
+            <CityName>Katowice</CityName>
+            <PostalCode>40-608</PostalCode>
+            <Country>PL</Country>
             <UtilizationRegisterNumber></UtilizationRegisterNumber>
             <CourtAndCapitalInformation></CourtAndCapitalInformation>
         </Seller>
         <Payee>
-            <ILN></ILN>
+            <ILN>0</ILN>
             <TaxID>6340065125</TaxID>
             <AccountNumber></AccountNumber>
-            <Name></Name>
-            <StreetAndNumber></StreetAndNumber>
-            <CityName></CityName>
-            <PostalCode></PostalCode>
-            <Country></Country>
+            <Name>SEWERA POLSKA CHEMIA IRENEUSZ WOLAK</Name>
+            <StreetAndNumber>ul. Tadeusza Kościuszki 326</StreetAndNumber>
+            <CityName>Katowice</CityName>
+            <PostalCode>40-608</PostalCode>
+            <Country>PL</Country>
         </Payee>
         <SellerHeadquarters>
-            <ILN></ILN>
+            <ILN>5909000816008</ILN>
             <TaxID>6340065125</TaxID>
             <AccountNumber></AccountNumber>
-            <Name></Name>
-            <StreetAndNumber></StreetAndNumber>
-            <CityName></CityName>
-            <PostalCode></PostalCode>
-            <Country></Country>
+            <Name>SEWERA POLSKA CHEMIA IRENEUSZ WOLAK</Name>
+            <StreetAndNumber>ul. Tadeusza Kościuszki 326</StreetAndNumber>
+            <CityName>Katowice</CityName>
+            <PostalCode>40-608</PostalCode>
+            <Country>PL</Country>
         </SellerHeadquarters>
     </Invoice-Parties>
     <Invoice-Lines>
         <Line>
             <Line-Item>
                 <LineNumber>1</LineNumber>
+                <EAN>5903973053408</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>89116</SupplierItemCode>
                 <ItemDescription>ŚNIEŻKA NA RDZĘ GRAFITOWY PÓŁMAT 0,65 LTEFLON ŚNIEŻKA</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>2.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>23.39</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -107,11 +108,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -119,17 +120,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>2</LineNumber>
+                <EAN>5903973053408</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>89116</SupplierItemCode>
                 <ItemDescription>ŚNIEŻKA NA RDZĘ GRAFITOWY PÓŁMAT 0,65 LTEFLON ŚNIEŻKA</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>6.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>23.39</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -139,11 +141,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -151,17 +153,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>3</LineNumber>
+                <EAN>5996281086527</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>425259</SupplierItemCode>
                 <ItemDescription>DREWNOCHRON LAKIEROBEJCA EXTRAPALISANDER 0,75 L NOWY</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>1.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>25.81</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -171,11 +174,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -183,17 +186,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>4</LineNumber>
+                <EAN>5900105809933</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>397094</SupplierItemCode>
                 <ItemDescription>RAFIL RADOWIL BRAMA BRĄZ CZEKOLADOWYPÓŁMAT RAL8017 0,9 L ŚNIEŻKA</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>3.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>27.46</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -203,11 +207,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -215,17 +219,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>5</LineNumber>
+                <EAN>5903973198697</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>399159</SupplierItemCode>
                 <ItemDescription>RAFIL EMALIA CHLOROKAUCZUKOWA BIAŁYSYGNAŁOWY RAL9003 0,9 L ŚNIEŻKA</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>3.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>19.6</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -235,11 +240,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -247,17 +252,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>6</LineNumber>
+                <EAN>5903973216513</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>399769</SupplierItemCode>
                 <ItemDescription>RAFIL EMALIA CHLOROKAUCZUKOWA SZARYPLANDEKOWY RAL7010 0,9 L ŚNIEŻKA</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>3.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>19.6</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -267,11 +273,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -279,17 +285,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>7</LineNumber>
+                <EAN>5900105809452</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>400082</SupplierItemCode>
                 <ItemDescription>RAFIL RADACH FARBA NA DACHSZARY OKIENNY PÓŁMAT RAL7040 0,75 L ŚNIEŻKA</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>1.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>20.99</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -299,11 +306,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -311,17 +318,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>8</LineNumber>
+                <EAN>5900105809452</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>400082</SupplierItemCode>
                 <ItemDescription>RAFIL RADACH FARBA NA DACHSZARY OKIENNY PÓŁMAT RAL7040 0,75 L ŚNIEŻKA</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>2.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>20.99</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -331,11 +339,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -343,17 +351,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>9</LineNumber>
+                <EAN>5905637117747</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>13460</SupplierItemCode>
                 <ItemDescription>RIGIPS KOŁEK WBIJANY Z KOŁNIERZEM 6WYMIARY 6x40mm / 200szt</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>10.0</InvoiceQuantity>
                 <UnitOfMeasure>OPA</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>19.31</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -363,11 +372,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -375,17 +384,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>10</LineNumber>
+                <EAN>9002869619370</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>13291</SupplierItemCode>
                 <ItemDescription>RIGIPS MASA SZPACHLOWA VARIO 5kgWOREK</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>10.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>18.99</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -395,11 +405,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -407,17 +417,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>11</LineNumber>
+                <EAN>9002869619394</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>10212</SupplierItemCode>
                 <ItemDescription>RIGIPS MASA SZPACHLOWA VARIO 25kgWOREK</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>2.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>85.44</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -427,11 +438,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -439,17 +450,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>12</LineNumber>
+                <EAN>5905637156876</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>162458</SupplierItemCode>
                 <ItemDescription>RIGIPS TAŚMA SPOINOWA SZKLANAWYMIARY 50mmx50m</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>10.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>6.62</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -459,11 +471,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -471,17 +483,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>13</LineNumber>
+                <EAN>5905637156876</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>162458</SupplierItemCode>
                 <ItemDescription>RIGIPS TAŚMA SPOINOWA SZKLANAWYMIARY 50mmx50m</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>2.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>6.62</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -491,11 +504,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -503,17 +516,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>14</LineNumber>
+                <EAN>5905637156876</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>162458</SupplierItemCode>
                 <ItemDescription>RIGIPS TAŚMA SPOINOWA SZKLANAWYMIARY 50mmx50m</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>8.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>6.62</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -523,11 +537,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -535,17 +549,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>15</LineNumber>
+                <EAN>4002806108405</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>13407</SupplierItemCode>
                 <ItemDescription>RIGIPS TAŚMA SPOINOWA SZKLANAWYMIARY 50mmx25m</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>20.0</InvoiceQuantity>
                 <UnitOfMeasure>SZT</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>3.59</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -555,11 +570,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -567,17 +582,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>16</LineNumber>
+                <EAN>5905637124523</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>13378</SupplierItemCode>
                 <ItemDescription>RIGIPS WKRĘTY TD 3,5x45mm 500sztDO DREWNA</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>4.0</InvoiceQuantity>
                 <UnitOfMeasure>OPA</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>18.95</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -587,11 +603,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -599,17 +615,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>17</LineNumber>
+                <EAN>5905637124523</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>13378</SupplierItemCode>
                 <ItemDescription>RIGIPS WKRĘTY TD 3,5x45mm 500sztDO DREWNA</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>8.0</InvoiceQuantity>
                 <UnitOfMeasure>OPA</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>18.95</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -619,11 +636,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>
@@ -631,17 +648,18 @@
         <Line>
             <Line-Item>
                 <LineNumber>18</LineNumber>
+                <EAN>5905637010031</EAN>
                 <BuyerItemCode></BuyerItemCode>
                 <SupplierItemCode>13389</SupplierItemCode>
                 <ItemDescription>RIGIPS WKRĘTY PCHEŁKI 3,9x11mm 100sztDO PROFILI</ItemDescription>
                 <ItemType>CU</ItemType>
                 <InvoiceQuantity>20.0</InvoiceQuantity>
                 <UnitOfMeasure>OPA</UnitOfMeasure>
-                <InvoiceUnitPacksize></InvoiceUnitPacksize>
+                <InvoiceUnitPacksize>0</InvoiceUnitPacksize>
                 <PackItemUnitOfMeasure></PackItemUnitOfMeasure>
                 <InvoiceUnitNetPrice>5.02</InvoiceUnitNetPrice>
                 <TaxRate>23.0</TaxRate>
-                <TaxCategoryCode></TaxCategoryCode>
+                <TaxCategoryCode>S</TaxCategoryCode>
                 <TaxReference>
                     <ReferenceType></ReferenceType>
                     <ReferenceNumber></ReferenceNumber>
@@ -651,11 +669,11 @@
             </Line-Item>
             <Line-Order>
                 <BuyerOrderNumber></BuyerOrderNumber>
-                <BuyerOrderDate></BuyerOrderDate>
+                <BuyerOrderDate>2021-10-12</BuyerOrderDate>
             </Line-Order>
             <Line-Delivery>
                 <DeliveryLocationNumber></DeliveryLocationNumber>
-                <DeliveryDate></DeliveryDate>
+                <DeliveryDate>2021-10-12</DeliveryDate>
                 <DespatchNumber></DespatchNumber>
                 <DespatchAdviceNumber></DespatchAdviceNumber>
             </Line-Delivery>

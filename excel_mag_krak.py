@@ -27,7 +27,7 @@ from pyexcel import get_records
     # for key in record:
     #     print(f'{key} : {record[key]}')
 
-records = get_records(file_name='example1.xlsx', encoding='utf-8')
+records = get_records(file_name='examples/example1.xlsx', encoding='utf-8')
 
 for record in records:
     print(record)
