@@ -1,9 +1,9 @@
-from containers.xml_template_classes_full_classes import DocumentInvoice, LineItem, Line, TaxSummaryLine
+from containers.xml_template_classes_full_classes import LineItem, Line, TaxSummaryLine
 from csv import reader
 from datetime import date
 
 
-def read(filename, xml_document):
+def read_from_csv(filename, xml_document):
     with open(filename) as file:
         data = reader(file, delimiter=';')
 
