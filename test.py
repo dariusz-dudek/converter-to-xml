@@ -1,5 +1,4 @@
-from db import Db
-
-db = Db()
-
-print(db.get_iln('6340065125'))
+words = set('Bartek')
+words1 = set('Kacper')
+aaa = words ^ words1
+print(aaa)
