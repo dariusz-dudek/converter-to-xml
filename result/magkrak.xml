@@ -1,20 +1,13 @@
 <Document-Invoice>
     <Invoice-Header>
-<<<<<<< HEAD
         <InvoiceNumber>Ominięto 3 wierszy FA: [84, 85, 86]</InvoiceNumber>
-=======
-        <InvoiceNumber>Ominięto 3 pozycji FA</InvoiceNumber>
->>>>>>> 11ecb786d43d74d421774cdc852a87136e4afa0b
         <InvoiceDate>2021-09-23</InvoiceDate>
         <SalesDate>2021-09-23</SalesDate>
         <InvoiceCurrency>PLN</InvoiceCurrency>
         <InvoicePaymentDueDate>2021-12-22</InvoicePaymentDueDate>
         <InvoicePaymentTerms>90</InvoicePaymentTerms>
         <DocumentFunctionCode>O</DocumentFunctionCode>
-<<<<<<< HEAD
         <Remarks></Remarks>
-=======
->>>>>>> 11ecb786d43d74d421774cdc852a87136e4afa0b
         <Order>
             <BuyerOrderNumber></BuyerOrderNumber>
             <BuyerOrderDate>2021-10-17</BuyerOrderDate>
