@@ -8,7 +8,7 @@ BUYER_NIP = '6280012377'
 
 
 class MagKrak:
-    def read_from_xls(self, filename, xml_document):
+    def read(self, filename, xml_document):
 
         sheet = get_sheet(file_name=filename, encoding='utf-8')
         db = Db()
@@ -28,10 +28,12 @@ class MagKrak:
         xml_document.invoice_parties.invoicee.iln = db.get_iln(BUYER_NIP)
         xml_document.invoice_header.invoice_date = sheet['X2']
         xml_document.invoice_header.sales_date = sheet['X2']
-        xml_document.invoice_header.invoice_payment_due_date = sheet['X2'] + timedelta(days=10)
+        xml_document.invoice_header.invoice_payment_due_date = sheet['X2'] + timedelta(days=90)
 
         for row_number, row in enumerate(sheet):
             if row_number == 0:
+                continue
+            if row[21] == ' ':
                 continue
             xml_document.invoice_lines.append(Line(LineItem(
                     line_number=row[0],

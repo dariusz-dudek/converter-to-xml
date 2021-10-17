@@ -9,7 +9,7 @@ BUYER_NIP = '6280012377'
 
 
 class Rawpol:
-    def read_from_csv(self, filename, xml_document):
+    def read(self, filename, xml_document):
         with open(filename, encoding='Windows-1250') as file:
             db = Db()
             data = reader(file, delimiter=';')

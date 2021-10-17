@@ -20,6 +20,24 @@ class AbstractView(ABC):
         self.repositories[name] = repository
 
 
+class AddFunction:
+    @staticmethod
+    def load_file(converter, xml_doc, name):
+        found_file = False
+        while not found_file:
+            file_name = input('Podaj nazwę pliku wraz z rozszerzeniem lub napisz quit aby wyjść: ')
+            if file_name == 'quit':
+                found_file = True
+                continue
+            try:
+                converter.read(file_name, xml_doc)
+                add_contractor_all(xml_doc)
+                draw_xml(f'result/{name}.xml', xml_doc)
+                found_file = True
+            except FileNotFoundError:
+                print(f'Pliku {file_name} nie znaleziono. Spróbuj jeszcze raz.\n')
+
+
 class SeweraImport(AbstractView):
     SHORTCUT = 'sewera'
     LABEL = 'Plik SEWERA csv'
@@ -28,10 +46,7 @@ class SeweraImport(AbstractView):
         print(SeweraImport.LABEL)
         xml_document = DocumentInvoice()
         sewera = Sewera()
-        file = input('Podaj nazwę pliku wraz z rozszerzeniem: ')
-        sewera.read_from_csv(file, xml_document)
-        add_contractor_all(xml_document)
-        draw_xml('sewera.xml', xml_document)
+        AddFunction.load_file(sewera, xml_document, SeweraImport.SHORTCUT)
 
 
 class RawpolImport(AbstractView):
@@ -42,10 +57,7 @@ class RawpolImport(AbstractView):
         print(RawpolImport.LABEL)
         xml_document = DocumentInvoice()
         rawpol = Rawpol()
-        file = input('Podaj nazwę pliku wraz z rozszerzeniem: ')
-        rawpol.read_from_csv(file, xml_document)
-        add_contractor_all(xml_document)
-        draw_xml('rawpol.xml', xml_document)
+        AddFunction.load_file(rawpol, xml_document, RawpolImport.SHORTCUT)
 
 
 class MagKrakImport(AbstractView):
@@ -56,10 +68,7 @@ class MagKrakImport(AbstractView):
         print(MagKrakImport.LABEL)
         xml_document = DocumentInvoice()
         mag_krak = MagKrak()
-        file = input('Podaj nazwę pliku wraz z rozszerzeniem: ')
-        mag_krak.read_from_xls(file, xml_document)
-        add_contractor_all(xml_document)
-        draw_xml('magkrak.xml', xml_document)
+        AddFunction.load_file(mag_krak, xml_document, MagKrakImport.SHORTCUT)
 
 
 class MainMenu(AbstractView):

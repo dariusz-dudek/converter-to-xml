@@ -1,10 +1,14 @@
 from litex.regon import REGONAPI
+from dotenv import load_dotenv
+from os import getenv
+
+load_dotenv()
 
 
 class RegonApi:
     def __init__(self, nip: str):
-        api = REGONAPI('https://wyszukiwarkaregon.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc')
-        api.login('bac161ff78964a67bb83')
+        api = REGONAPI(getenv('API_REGONAPI'))
+        api.login(getenv('API_LOGIN'))
         self.data = api.search(nip=nip)
 
     def get_regon(self):

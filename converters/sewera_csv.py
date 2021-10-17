@@ -5,7 +5,7 @@ from db import Db
 
 
 class Sewera:
-    def read_from_csv(self, filename, xml_document):
+    def read(self, filename, xml_document):
         with open(filename) as file:
             db = Db()
             data = reader(file, delimiter=';')
