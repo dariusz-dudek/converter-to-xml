@@ -7,7 +7,10 @@
         <InvoicePaymentDueDate>2022-01-02</InvoicePaymentDueDate>
         <InvoicePaymentTerms>89</InvoicePaymentTerms>
         <DocumentFunctionCode>O</DocumentFunctionCode>
+<<<<<<< HEAD
         <Remarks></Remarks>
+=======
+>>>>>>> 11ecb786d43d74d421774cdc852a87136e4afa0b
         <Order>
             <BuyerOrderNumber></BuyerOrderNumber>
             <BuyerOrderDate>2021-10-17</BuyerOrderDate>

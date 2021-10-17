@@ -54,10 +54,16 @@ class MagKrak:
                     tax_category_code='S'
             )))
 
+<<<<<<< HEAD
         xml_document.invoice_header.invoice_number = 'Wpisać nr FA'
         if not omitted == 0:
             xml_document.invoice_header.invoice_number = \
                 f'Ominięto {omitted} wierszy FA: {omitted_list}'
+=======
+        xml_document.invoice_header.invoice_number = f'Ominięto {omitted} pozycji FA'
+        if not omitted == 0:
+            print(f'Ominięto {omitted} wierszy FA: {omitted_list}')
+>>>>>>> 11ecb786d43d74d421774cdc852a87136e4afa0b
 
     @staticmethod
     def encode(text: str) -> str:
