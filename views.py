@@ -1,6 +1,7 @@
 from containers.xml_template_classes_full_classes import DocumentInvoice
 from contractors.add_contractor import add_contractor_all
 from pyexcel.exceptions import FileTypeNotSupported
+from containers.calculate_sumary import Sumary
 from converters.excel_mag_krak import MagKrak
 from converters.sewera_csv import Sewera
 from terminaltables import AsciiTable
@@ -33,15 +34,17 @@ class AddFunction:
             try:
                 converter.read(file_name, xml_doc)
                 add_contractor_all(xml_doc)
+                Sumary.calculate_sumary(xml_doc)
                 draw_xml(f'result/{name}.xml', xml_doc)
                 found_file = True
             except FileNotFoundError:
                 print(f'\nPliku {file_name} nie znaleziono.')
+                print('Spróbuj jeszcze raz.\n')
             except FileTypeNotSupported:
                 print(f'\nNieobsługiwany rodzaj pliku.')
+                print('Spróbuj jeszcze raz.\n')
             except IndexError:
                 print('\nWynik operacji poza skalą lub nieobsługiwany rodzaj pliku.')
-            finally:
                 print('Spróbuj jeszcze raz.\n')
 
 
