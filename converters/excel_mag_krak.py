@@ -1,5 +1,5 @@
 from containers.xml_template_classes_full_classes import Line, LineItem, TaxSummaryLine
-from pyexcel import iget_records, get_sheet
+from pyexcel import get_sheet
 from datetime import timedelta
 from db import Db
 
@@ -19,7 +19,6 @@ class MagKrak:
         xml_document.invoice_parties.payee.iln = db.get_iln(SELLER_NIP)
         xml_document.invoice_parties.seller_headquarters.tax_id = SELLER_NIP
         xml_document.invoice_parties.seller_headquarters.iln = db.get_iln(SELLER_NIP)
-        xml_document.invoice_header.invoice_number = f'wpisać numer FA'
         xml_document.invoice_parties.buyer.tax_id = BUYER_NIP
         xml_document.invoice_parties.buyer.iln = db.get_iln(BUYER_NIP)
         xml_document.invoice_parties.payer.tax_id = BUYER_NIP
@@ -30,10 +29,15 @@ class MagKrak:
         xml_document.invoice_header.sales_date = sheet['X2']
         xml_document.invoice_header.invoice_payment_due_date = sheet['X2'] + timedelta(days=90)
 
+        omitted = 0
+        omitted_list = []
+
         for row_number, row in enumerate(sheet):
             if row_number == 0:
                 continue
             if row[21] == ' ':
+                omitted += 1
+                omitted_list.append(row[0])
                 continue
             xml_document.invoice_lines.append(Line(LineItem(
                     line_number=row[0],
@@ -50,27 +54,10 @@ class MagKrak:
                     tax_category_code='S'
             )))
 
-        for row in xml_document.invoice_lines:
-            if row.line_item.tax_rate not in \
-                    [float(vat.tax_rate) for vat in xml_document.invoice_summary.tax_summary.tax_summary_line]:
-                xml_document.invoice_summary.tax_summary.tax_summary_line.\
-                    append(TaxSummaryLine(tax_rate=float(row.line_item.tax_rate), tax_category_code='S'))
-
-            for vat_summary in xml_document.invoice_summary.tax_summary.tax_summary_line:
-                if vat_summary.tax_rate == row.line_item.tax_rate:
-                    vat_summary.taxable_basis += row.line_item.net_amount
-
-        for tax_sumary_line in xml_document.invoice_summary.tax_summary.tax_summary_line:
-            tax_sumary_line.taxable_amount = tax_sumary_line.taxable_basis
-            tax_sumary_line.tax_amount = round(tax_sumary_line.taxable_basis * (tax_sumary_line.tax_rate / 100), 2)
-            tax_sumary_line.gross_amount = round(tax_sumary_line.tax_amount + tax_sumary_line.taxable_basis, 2)
-            xml_document.invoice_summary.total_taxable_basis += tax_sumary_line.taxable_basis
-            xml_document.invoice_summary.total_net_amount += tax_sumary_line.taxable_amount
-            xml_document.invoice_summary.total_tax_amount += tax_sumary_line.tax_amount
-
-        xml_document.invoice_summary.total_gross_amount = \
-            float(xml_document.invoice_summary.total_taxable_basis)\
-            + float(xml_document.invoice_summary.total_tax_amount)
+        xml_document.invoice_header.invoice_number = 'Wpisać nr FA'
+        if not omitted == 0:
+            xml_document.invoice_header.invoice_number = \
+                f'Ominięto {omitted} wierszy FA: {omitted_list}'
 
     @staticmethod
     def encode(text: str) -> str:

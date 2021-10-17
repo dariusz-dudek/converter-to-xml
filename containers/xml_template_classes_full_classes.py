@@ -68,7 +68,7 @@ class InvoiceHeader:
     document_function_code: str = ''          # Typ dokumentu: O–oryginał D–duplikat C–korekta R–duplikat korekty
     message_type: str = ''                    # Typ dokumentu: INV–faktura SB–rachunek własny
     correction_reason: str = ''               # Powód korekty
-    remakes: str = ''                         # Uwagi
+    remarks: str = ''                         # Uwagi
     order: Order = Order()
     reference: Reference = Reference()
     delivery: Delivery = Delivery()
